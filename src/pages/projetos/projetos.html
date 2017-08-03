@@ -1,0 +1,18 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>Projetos</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <button ion-item *ngFor="let item of lista" (click)="selecionar(item)">
+        <h2>{{item.nome}}</h2>
+        <h3>{{item.clube}}</h3>
+        <p>{{item.categorias}}</p>
+      </button>
+    </ion-list>
+</ion-content>
