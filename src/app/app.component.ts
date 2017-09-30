@@ -4,8 +4,14 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { ProjetosPage } from '../pages/projetos/projetos';
+import { LemaRotarioPage } from '../pages/lema-rotario/lema-rotario';
+import { ListaPresidentesPage } from '../pages/lista-presidentes/lista-presidentes';
 import { ClubesPage } from '../pages/clubes/clubes';
+import { EquipeDistritalPage } from '../pages/equipe-distrital/equipe-distrital';
+import { AgendaPage } from '../pages/agenda/agenda';
+import { DownloadsPage } from '../pages/downloads/downloads';
+import { FaqPage } from '../pages/faq/faq';
+import { ListaCargosPage } from '../pages/lista-cargos/lista-cargos';
 
 @Component({
   templateUrl: 'app.html'
@@ -23,8 +29,14 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Distríto 4430', component: HomePage },
-      { title: 'Projetos', component: ProjetosPage },
-      { title: 'Clubes', component: ClubesPage }
+      { title: 'Lema rotário', component: LemaRotarioPage },
+      { title: 'Presidentes', component: ListaPresidentesPage },
+      { title: 'Clubes', component: ClubesPage },
+      { title: 'Equipe distrital', component: EquipeDistritalPage },
+      { title: 'Agenda', component: AgendaPage },
+      { title: 'Guia de cargos', component: ListaCargosPage },
+      { title: 'Download', component: DownloadsPage },
+      { title: 'F.A.Q.', component: FaqPage }
     ];
 
   }
