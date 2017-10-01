@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { ListaRdrsPage } from '../pages/lista-rdrs/lista-rdrs';
 import { LemaRotarioPage } from '../pages/lema-rotario/lema-rotario';
 import { ListaPresidentesPage } from '../pages/lista-presidentes/lista-presidentes';
 import { ClubesPage } from '../pages/clubes/clubes';
@@ -13,6 +14,7 @@ import { AgendaPage } from '../pages/agenda/agenda';
 import { DownloadsPage } from '../pages/downloads/downloads';
 import { FaqPage } from '../pages/faq/faq';
 import { ListaCargosPage } from '../pages/lista-cargos/lista-cargos';
+import { DetalheClubePage } from '../pages/detalhe-clube/detalhe-clube';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -28,7 +30,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
         AgendaPage,
         DownloadsPage,
         FaqPage,
-        ListaCargosPage
+        ListaCargosPage,
+        ListaRdrsPage,
+        DetalheClubePage
     ],
     imports: [
         BrowserModule,
@@ -46,7 +50,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
         AgendaPage,
         DownloadsPage,
         FaqPage,
-        ListaCargosPage
+        ListaCargosPage,
+        ListaRdrsPage,
+        DetalheClubePage
     ],
     providers: [
         StatusBar,
