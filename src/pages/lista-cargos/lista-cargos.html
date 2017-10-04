@@ -7,7 +7,10 @@
   </ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
-
+  <ion-list>
+    <button ion-item *ngFor="let item of lista" (click)="abrirDetalhe(item)">
+      {{ item.nome }}
+    </button>
+  </ion-list>
 </ion-content>

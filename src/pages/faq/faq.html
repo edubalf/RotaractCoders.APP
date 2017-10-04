@@ -9,5 +9,12 @@
 
 
 <ion-content padding>
-
+  <ion-card *ngFor="let item of lista">
+    <ion-card-header>
+      {{item.pergunta}}
+    </ion-card-header>
+    <ion-card-content>
+      {{item.resposta}}
+    </ion-card-content>
+  </ion-card>
 </ion-content>

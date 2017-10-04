@@ -9,5 +9,9 @@
 
 
 <ion-content padding>
-
+  <ion-list>
+    <button ion-item *ngFor="let item of lista" (click)="abrirLinks(item)">
+      {{item.nome}}
+    </button>
+  </ion-list>
 </ion-content>

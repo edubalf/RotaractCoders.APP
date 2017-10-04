@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { ClubeResult } from '../../models/results/clube-result';
 
+import { DetalheClubePage } from '../detalhe-clube/detalhe-clube';
+
 @IonicPage()
 @Component({
     selector: 'page-clubes',
@@ -18,10 +20,10 @@ export class ClubesPage {
             nome: "Tremembé",
             dataFundacao: "01/01/2011",
             email: "tremembe@tremembe.com",
-            facebook: "facebook.com/tremembe",
+            facebook: "https://www.facebook.com/RotaractClubDeSaoPauloTremembe",
             horarioReuniao: "1º e 3º domingo do mês às 15h",
             localReuniao: "Rua Francisco Narciso, 191",
-            instagram: "@tremembe",
+            instagram: "",
             presidente: "Vitinho"
         });
 
@@ -29,17 +31,17 @@ export class ClubesPage {
             nome: "Vila Maria",
             dataFundacao: "01/01/2010",
             email: "vilamaria@vilamaria.com",
-            facebook: "facebook.com/vilamaria",
+            facebook: "https://www.facebook.com/RotaractVilaMaria",
             horarioReuniao: "1º e 3º domingo do mês às 10h",
             localReuniao: "Rua Francisco, 1",
-            instagram: "@vilamaria",
+            instagram: "https://www.instagram.com/rotaractvilamaria",
             presidente: "Jacque"
         });
     }
 
     abrirClube(clube: ClubeResult) {
 
-        this.navCtrl.push("page-detalhe-clube", { clube: clube });
+        this.navCtrl.push(DetalheClubePage, { clube: clube });
     }
 
     ionViewDidLoad() {

@@ -15,6 +15,8 @@ import { DownloadsPage } from '../pages/downloads/downloads';
 import { FaqPage } from '../pages/faq/faq';
 import { ListaCargosPage } from '../pages/lista-cargos/lista-cargos';
 import { DetalheClubePage } from '../pages/detalhe-clube/detalhe-clube';
+import { DetalheCargoPage } from '../pages/detalhe-cargo/detalhe-cargo';
+import { ListaArquivosPage } from '../pages/lista-arquivos/lista-arquivos';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -32,7 +34,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
         FaqPage,
         ListaCargosPage,
         ListaRdrsPage,
-        DetalheClubePage
+        DetalheClubePage,
+        DetalheCargoPage,
+        ListaArquivosPage
     ],
     imports: [
         BrowserModule,
@@ -52,7 +56,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
         FaqPage,
         ListaCargosPage,
         ListaRdrsPage,
-        DetalheClubePage
+        DetalheClubePage,
+        DetalheCargoPage,
+        ListaArquivosPage
     ],
     providers: [
         StatusBar,

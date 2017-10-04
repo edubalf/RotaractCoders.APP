@@ -1,25 +1,31 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the FaqPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { FaqResult } from '../../models/results/faq-result';
 
 @IonicPage()
 @Component({
-  selector: 'page-faq',
-  templateUrl: 'faq.html',
+    selector: 'page-faq',
+    templateUrl: 'faq.html',
 })
 export class FaqPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+    lista: FaqResult[] = [];
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad FaqPage');
-  }
+    constructor(public navCtrl: NavController, public navParams: NavParams) {
 
+        this.lista.push({
+            pergunta: 'O que é Adirc',
+            resposta: 'Assembléia Distrital de Rotaract Clubes'
+        });
+
+        this.lista.push({
+            pergunta: 'O que é Codirc',
+            resposta: 'Conferencia Distrital de Rotaract Clubes'
+        });
+    }
+
+    ionViewDidLoad() {
+        console.log('ionViewDidLoad FaqPage');
+    }
 }
