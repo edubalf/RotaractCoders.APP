@@ -2,9 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\app",
-    "\\src\\assets\\fotos\\rdrs"
+    "\\src\\assets",
+    "\\src\\assets\\icon"
   ],
-  "SelectedNode": "\\src\\app\\app.module.ts",
+  "SelectedNode": "\\src\\assets\\icon\\instagram.ico",
   "PreviewInSolutionExplorer": false
 }

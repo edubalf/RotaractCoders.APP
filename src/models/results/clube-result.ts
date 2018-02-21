@@ -1,4 +1,5 @@
 export class ClubeResult {
+    rowKey: string;
     nome: string;
     dataFundacao: string;
     presidente: string;
@@ -7,6 +8,9 @@ export class ClubeResult {
     email: string;
     instagram: string;
     facebook: string;
+    site: string;
+    rotaryPadrinho: string;
+    numeroDistrito: string;
 
     constructor(values: Object = {}) {
         Object.assign(this, values);

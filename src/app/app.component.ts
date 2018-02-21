@@ -14,6 +14,8 @@ import { DownloadsPage } from '../pages/downloads/downloads';
 import { FaqPage } from '../pages/faq/faq';
 import { ListaCargosPage } from '../pages/lista-cargos/lista-cargos';
 
+import { ConsolidadoProvider } from '../providers/consolidado/consolidado';
+
 @Component({
     templateUrl: 'app.html'
 })
@@ -24,7 +26,12 @@ export class MyApp {
 
     pages: Array<{ title: string, component: any }>;
 
-    constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+    constructor(
+        public platform: Platform, 
+        public statusBar: StatusBar, 
+        public splashScreen: SplashScreen,
+        private consolidadoProvider: ConsolidadoProvider) {
+        
         this.initializeApp();
 
         // used for an example of ngFor and navigation
@@ -45,10 +52,15 @@ export class MyApp {
 
     initializeApp() {
         this.platform.ready().then(() => {
-            // Okay, so the platform is ready and our plugins are available.
-            // Here you can do any higher level native things you might need.
             this.statusBar.styleDefault();
             this.splashScreen.hide();
+        });
+
+        
+        this.consolidadoProvider.atualizar().then(retorno => {
+            retorno.subscribe(() => {
+                console.log('fim');
+            });
         });
     }
 

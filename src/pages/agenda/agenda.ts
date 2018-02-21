@@ -1,25 +1,31 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the AgendaPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { AgendaResult } from '../../models/results/agenda-result';
+import { EventoProvider } from '../../providers/evento/evento';
+import { DetalheAgendaPage } from '../detalhe-agenda/detalhe-agenda';
 
 @IonicPage()
 @Component({
   selector: 'page-agenda',
-  templateUrl: 'agenda.html',
+  templateUrl: 'agenda.html'
 })
 export class AgendaPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  lista: AgendaResult[] = [];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public eventoProvider: EventoProvider) {
+
+    this.eventoProvider.listar().then(data => {
+      console.log(data);
+      this.lista = data
+    });
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AgendaPage');
   }
 
+  abrirDetalhe(evento) {
+    this.navCtrl.push(DetalheAgendaPage, { evento: evento });
+  }
 }

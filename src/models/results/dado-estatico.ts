@@ -1,10 +1,7 @@
-export class DownloadResult {
+export class DadoEstaticoResult {
     nome: string;
-    links: [{
-        nome: string;
-        link: string;
-    }];
-
+    descricao: string;
+    
     constructor(values: Object = {}) {
         Object.assign(this, values);
     }

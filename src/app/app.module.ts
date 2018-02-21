@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpModule } from '@angular/http';
+import { IonicStorageModule } from '@ionic/storage';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -15,11 +16,19 @@ import { DownloadsPage } from '../pages/downloads/downloads';
 import { FaqPage } from '../pages/faq/faq';
 import { ListaCargosPage } from '../pages/lista-cargos/lista-cargos';
 import { DetalheClubePage } from '../pages/detalhe-clube/detalhe-clube';
+import { DetalheAgendaPage } from '../pages/detalhe-agenda/detalhe-agenda';
 import { DetalheCargoPage } from '../pages/detalhe-cargo/detalhe-cargo';
 import { ListaArquivosPage } from '../pages/lista-arquivos/lista-arquivos';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { EventoProvider } from '../providers/evento/evento';
+import { ArquivoProvider } from '../providers/arquivo/arquivo';
+import { ClubeProvider } from '../providers/clube/clube';
+import { DadoEstaticoProvider } from '../providers/dado-estatico/dado-estatico';
+import { FaqProvider } from '../providers/faq/faq';
+import { SocioProvider } from '../providers/socio/socio';
+import { ConsolidadoProvider } from '../providers/consolidado/consolidado';
 
 @NgModule({
     declarations: [
@@ -36,11 +45,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
         ListaRdrsPage,
         DetalheClubePage,
         DetalheCargoPage,
+        DetalheAgendaPage,
         ListaArquivosPage
     ],
     imports: [
         BrowserModule,
         IonicModule.forRoot(MyApp),
+        IonicStorageModule.forRoot(),
         HttpModule
     ],
     bootstrap: [IonicApp],
@@ -58,12 +69,20 @@ import { SplashScreen } from '@ionic-native/splash-screen';
         ListaRdrsPage,
         DetalheClubePage,
         DetalheCargoPage,
+        DetalheAgendaPage,
         ListaArquivosPage
     ],
     providers: [
         StatusBar,
         SplashScreen,
-        { provide: ErrorHandler, useClass: IonicErrorHandler }
+        { provide: ErrorHandler, useClass: IonicErrorHandler },
+    EventoProvider,
+    ArquivoProvider,
+    ClubeProvider,
+    DadoEstaticoProvider,
+    FaqProvider,
+    SocioProvider,
+    ConsolidadoProvider
     ]
 })
 export class AppModule { }

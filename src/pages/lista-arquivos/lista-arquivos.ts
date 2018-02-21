@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { DownloadResult } from '../../models/results/download-result';
+import { ArquivoResult } from '../../models/results/arquivo-result';
 
 @IonicPage()
 @Component({
@@ -10,7 +10,7 @@ import { DownloadResult } from '../../models/results/download-result';
 })
 export class ListaArquivosPage {
 
-    download: DownloadResult;
+    download: ArquivoResult;
 
     constructor(public navCtrl: NavController, public navParams: NavParams) {
         this.download = this.navParams.get('download');
