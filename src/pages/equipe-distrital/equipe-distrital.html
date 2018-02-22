@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="rotaract">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -8,34 +8,13 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
+  <ion-list no-lines>
     <ion-item *ngFor="let item of lista">
-      <ion-card>
-        <img src={{item.foto}}>
-        <ion-card-content>
-          <ion-card-title>
-            {{item.nome}}
-          </ion-card-title>
-          <p>
-            Cargo: {{item.cargo}}<br />
-            Clube: {{item.clube}}<br />
-          </p>
-          <br />
-          <ion-row>
-            <ion-col>
-              <a href={{item.facebook}} ion-button clear large>
-                <img src="assets/icon/facebook.ico" />
-              </a>
-            </ion-col>
-            <ion-col>
-              <a href="mailto:{{item.email}}" ion-button clear large>
-                <img src="assets/icon/email.ico" />
-              </a>
-            </ion-col>
-            <ion-col></ion-col>
-          </ion-row>
-        </ion-card-content>
-      </ion-card>
+      <ion-avatar item-start>
+        <img src={{item.foto}} imageViewer>
+      </ion-avatar>
+      <h2 text-left>{{item.nome}}</h2>
+      <p text-left>{{item.cargo}}</p>
     </ion-item>
   </ion-list>
 </ion-content>

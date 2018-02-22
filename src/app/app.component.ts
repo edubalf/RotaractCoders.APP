@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, LoadingController, AlertController, Platform, Content } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -16,6 +16,8 @@ import { ListaCargosPage } from '../pages/lista-cargos/lista-cargos';
 
 import { ConsolidadoProvider } from '../providers/consolidado/consolidado';
 
+import 'rxjs/RX';
+
 @Component({
     templateUrl: 'app.html'
 })
@@ -26,15 +28,37 @@ export class MyApp {
 
     pages: Array<{ title: string, component: any }>;
 
+    presentAlert() {
+        let alert = this.alertController.create({
+          subTitle: 'Não foi possivel atualizar as informações'
+        });
+
+        alert.present();
+
+        setTimeout(function(){ alert.dismiss() }, 2000);        
+      }
+
     constructor(
         public platform: Platform, 
         public statusBar: StatusBar, 
         public splashScreen: SplashScreen,
-        private consolidadoProvider: ConsolidadoProvider) {
+        private consolidadoProvider: ConsolidadoProvider,
+        private loadingController: LoadingController,
+        private alertController: AlertController) {
         
         this.initializeApp();
 
-        // used for an example of ngFor and navigation
+        this.loader.present().then(() => {
+            this.consolidadoProvider.atualizar().then(retorno => {
+                retorno.subscribe(() => {
+                    this.openPage({ title: 'Distríto 4430', component: HomePage });
+                    this.loader.dismiss();
+                }, err => {
+                    this.loader.dismiss();
+                });
+            });    
+        });
+
         this.pages = [
             { title: 'Distríto 4430', component: HomePage },
             { title: 'Galeria RDRs', component: ListaRdrsPage },
@@ -50,17 +74,14 @@ export class MyApp {
 
     }
 
+    loader = this.loadingController.create({
+        content: 'Atualizando os dados...',
+      });
+
     initializeApp() {
         this.platform.ready().then(() => {
             this.statusBar.styleDefault();
             this.splashScreen.hide();
-        });
-
-        
-        this.consolidadoProvider.atualizar().then(retorno => {
-            retorno.subscribe(() => {
-                console.log('fim');
-            });
         });
     }
 

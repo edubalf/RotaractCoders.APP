@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
+import 'rxjs/RX';
 import { Storage } from '@ionic/storage';
 import { Config } from '../../config';
 import { ClubeResult } from '../../models/results/clube-result';
@@ -17,7 +17,7 @@ export class ConsolidadoProvider {
 
   atualizar() {
     
-    this.storage.set('dataUltimaAtualizacao', null);
+    //this.storage.set('dataUltimaAtualizacao', null);
 
     return this.storage.get('dataUltimaAtualizacao').then(data => {
 
@@ -31,8 +31,8 @@ export class ConsolidadoProvider {
       */
 
       if (data == null) {
-        console.log('entrou');
-        return this.http.get(this.config.apiUrl + 'api/Consolidado/2018-01-01')
+        
+        return this.http.get(this.config.apiUrl + 'api/Consolidado/2018-01-01')    
           .map(res => {
             this.storage.set('arquivo', res.json().arquivos);
             this.storage.set('clube', res.json().clubes);
@@ -42,7 +42,7 @@ export class ConsolidadoProvider {
             this.storage.set('socio', res.json().socios);
 
             this.storage.set('dataUltimaAtualizacao', res.json().data);
-          });
+          }).catch(this.handleError);
       }
 
       return this.http.get(this.config.apiUrl + 'api/Consolidado/' + data)
@@ -53,7 +53,7 @@ export class ConsolidadoProvider {
           this.atulizarTabela('agenda', res.json().eventos);
           this.atulizarTabela('faq', res.json().faqs);
           this.atulizarTabela('socio', res.json().socios);
-        });
+        }).catch(this.handleError);
     });
   }
 
@@ -78,5 +78,10 @@ export class ConsolidadoProvider {
 
       this.storage.set(nomeTabela, dadosSalvos);
     });
+  }
+
+  private handleError(error: any) {
+    console.error(error);
+    return Promise.reject(error);
   }
 }
