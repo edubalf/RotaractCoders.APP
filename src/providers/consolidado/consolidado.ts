@@ -17,7 +17,7 @@ export class ConsolidadoProvider {
 
   atualizar() {
     
-    //this.storage.set('dataUltimaAtualizacao', null);
+    this.storage.set('dataUltimaAtualizacao', null);
 
     return this.storage.get('dataUltimaAtualizacao').then(data => {
 

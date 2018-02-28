@@ -8,8 +8,8 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list no-lines>
-    <ion-item *ngFor="let item of lista">
+  <ion-list>
+    <ion-item *ngFor="let item of lista" (click)="abrirSocio(item)">
       <ion-avatar item-start>
         <img src={{item.foto}} imageViewer>
       </ion-avatar>

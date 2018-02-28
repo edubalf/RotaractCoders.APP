@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { DetalheSocioPage } from '../detalhe-socio/detalhe-socio';
 
 import { SocioResult } from '../../models/results/socio-result';
 
@@ -35,8 +36,9 @@ export class EquipeDistritalPage {
             });
     }
 
-    ionViewDidLoad() {
-        console.log('ionViewDidLoad EquipeDistritalPage');
+    abrirSocio(socio: SocioResult) {
+        
+        this.navCtrl.push(DetalheSocioPage, { socio: socio });
     }
 
 }

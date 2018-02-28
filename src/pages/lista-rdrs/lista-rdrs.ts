@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SocioResult } from '../../models/results/socio-result';
 import { SocioProvider } from '../../providers/socio/socio';
+import { DetalheSocioPage } from '../detalhe-socio/detalhe-socio';
 
 @IonicPage()
 @Component({
@@ -38,8 +39,9 @@ export class ListaRdrsPage {
             });
         }
 
-    ionViewDidLoad() {
-        console.log('ionViewDidLoad ListaRdrsPage');
+    abrirSocio(socio: SocioResult) {
+        
+        this.navCtrl.push(DetalheSocioPage, { socio: socio });
     }
 
 }

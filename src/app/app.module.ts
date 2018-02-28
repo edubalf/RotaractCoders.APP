@@ -3,6 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpModule } from '@angular/http';
 import { IonicStorageModule } from '@ionic/storage';
+import { IonicImageViewerModule } from 'ionic-img-viewer';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -18,6 +19,7 @@ import { ListaCargosPage } from '../pages/lista-cargos/lista-cargos';
 import { DetalheClubePage } from '../pages/detalhe-clube/detalhe-clube';
 import { DetalheAgendaPage } from '../pages/detalhe-agenda/detalhe-agenda';
 import { DetalheCargoPage } from '../pages/detalhe-cargo/detalhe-cargo';
+import { DetalheSocioPage } from '../pages/detalhe-socio/detalhe-socio';
 import { ListaArquivosPage } from '../pages/lista-arquivos/lista-arquivos';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -46,13 +48,15 @@ import { ConsolidadoProvider } from '../providers/consolidado/consolidado';
         DetalheClubePage,
         DetalheCargoPage,
         DetalheAgendaPage,
-        ListaArquivosPage
+        ListaArquivosPage,
+        DetalheSocioPage
     ],
     imports: [
         BrowserModule,
         IonicModule.forRoot(MyApp),
         IonicStorageModule.forRoot(),
-        HttpModule
+        HttpModule,
+        IonicImageViewerModule
     ],
     bootstrap: [IonicApp],
     entryComponents: [
@@ -70,7 +74,8 @@ import { ConsolidadoProvider } from '../providers/consolidado/consolidado';
         DetalheClubePage,
         DetalheCargoPage,
         DetalheAgendaPage,
-        ListaArquivosPage
+        ListaArquivosPage,
+        DetalheSocioPage
     ],
     providers: [
         StatusBar,
