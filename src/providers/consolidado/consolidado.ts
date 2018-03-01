@@ -5,6 +5,7 @@ import { Storage } from '@ionic/storage';
 import { Config } from '../../config';
 import { ClubeResult } from '../../models/results/clube-result';
 import { ClickBlock } from 'ionic-angular/components/app/click-block';
+import { timer } from 'rxjs/observable/timer';
 
 @Injectable()
 export class ConsolidadoProvider {
@@ -17,7 +18,7 @@ export class ConsolidadoProvider {
 
   atualizar() {
     
-    this.storage.set('dataUltimaAtualizacao', null);
+    //this.storage.set('dataUltimaAtualizacao', null);
 
     return this.storage.get('dataUltimaAtualizacao').then(data => {
 
@@ -52,9 +53,44 @@ export class ConsolidadoProvider {
           this.atulizarTabela('dado-estatico', res.json().dadosEstaticos);
           this.atulizarTabela('agenda', res.json().eventos);
           this.atulizarTabela('faq', res.json().faqs);
+
+
+          var count = res.json().socios.length;
+          console.log('inicio:' + count);
+
+          res.json().socios.forEach(socio => {
+            var nome: string = socio.foto.replace(/^.*[\\\/]/, '');
+            
+            //socio.foto = 'https://img00.deviantart.net/37c6/i/2017/257/d/b/rayquaza_cloning_goo_tf_tg_pt_2_by_avianine-dbndjsi.png';
+
+            this.toDataURL(socio.foto, data => {
+              socio.foto = data;
+              count--;
+              console.log('converteu:' + count);
+            });
+          });
+
+          
           this.atulizarTabela('socio', res.json().socios);
+          
+          
+          //this.storage.set('dataUltimaAtualizacao', res.json().data);
         }).catch(this.handleError);
     });
+  }
+
+  toDataURL(url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function() {
+      var reader = new FileReader();
+      reader.onloadend = function() {
+        callback(reader.result);
+      }
+      reader.readAsDataURL(xhr.response);
+    };
+    xhr.open('GET', url);
+    xhr.responseType = 'blob';
+    xhr.send();
   }
 
   private atulizarTabela(nomeTabela: string, dadosNovos: any){
