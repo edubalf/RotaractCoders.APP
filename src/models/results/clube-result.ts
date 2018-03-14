@@ -1,5 +1,6 @@
 export class ClubeResult {
     rowKey: string;
+    codigo: string;
     nome: string;
     dataFundacao: string;
     presidente: string;
@@ -11,6 +12,7 @@ export class ClubeResult {
     site: string;
     rotaryPadrinho: string;
     numeroDistrito: string;
+    dataFechamento: Date;
 
     constructor(values: Object = {}) {
         Object.assign(this, values);

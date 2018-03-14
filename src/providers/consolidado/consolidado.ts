@@ -20,8 +20,9 @@ export class ConsolidadoProvider {
     
     //this.storage.set('dataUltimaAtualizacao', null);
 
-    return this.storage.get('dataUltimaAtualizacao').then(data => {
+    return this.storage.get('dataUltimaAtualizacao').then(retorno => {
 
+      console.log(retorno);
       /*
       this.storage.set('arquivo', null);
       this.storage.set('clube', null);
@@ -31,50 +32,22 @@ export class ConsolidadoProvider {
       this.storage.set('socio', null);
       */
 
-      if (data == null) {
-        
-        return this.http.get(this.config.apiUrl + 'api/Consolidado/2018-01-01')    
-          .map(res => {
-            this.storage.set('arquivo', res.json().arquivos);
-            this.storage.set('clube', res.json().clubes);
-            this.storage.set('dado-estatico', res.json().dadosEstaticos);
-            this.storage.set('agenda', res.json().eventos);
-            this.storage.set('faq', res.json().faqs);
-            this.storage.set('socio', res.json().socios);
+     var data: Date;
 
-            this.storage.set('dataUltimaAtualizacao', res.json().data);
-          }).catch(this.handleError);
+      if (retorno == null) {
+        data = new Date(2018,1,1);
+      } else {
+        data = new Date(retorno);
       }
 
-      return this.http.get(this.config.apiUrl + 'api/Consolidado/' + data)
+      return this.http.get(this.config.apiUrl + 'api/Consolidado/' + data.getFullYear() + '-' + data.getMonth() + '-' + data.getDay())
         .map(res => {
           this.atulizarTabela('arquivo', res.json().arquivos);
-          this.atulizarTabela('clube', res.json().clubes);
           this.atulizarTabela('dado-estatico', res.json().dadosEstaticos);
           this.atulizarTabela('agenda', res.json().eventos);
           this.atulizarTabela('faq', res.json().faqs);
-
-
-          var count = res.json().socios.length;
-          console.log('inicio:' + count);
-
-          res.json().socios.forEach(socio => {
-            var nome: string = socio.foto.replace(/^.*[\\\/]/, '');
-            
-            //socio.foto = 'https://img00.deviantart.net/37c6/i/2017/257/d/b/rayquaza_cloning_goo_tf_tg_pt_2_by_avianine-dbndjsi.png';
-
-            this.toDataURL(socio.foto, data => {
-              socio.foto = data;
-              count--;
-              console.log('converteu:' + count);
-            });
-          });
-
           
-          this.atulizarTabela('socio', res.json().socios);
-          
-          
-          //this.storage.set('dataUltimaAtualizacao', res.json().data);
+          this.storage.set('dataUltimaAtualizacao', res.json().data);
         }).catch(this.handleError);
     });
   }

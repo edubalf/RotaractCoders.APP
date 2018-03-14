@@ -13,9 +13,9 @@
       <ion-avatar item-start>
         <img src={{item.foto}} imageViewer>
       </ion-avatar>
-      <h2 text-left>{{item.nome}}</h2>
+      <h2 text-left>{{item.nomeSocio}}</h2>
       <p text-left>{{item.clube}}</p>
-      <p text-left>{{item.anoRotario}}</p>
+      <p text-left>{{item.gestaoDe | date: 'dd/MM/yyyy'}} ~ {{item.gestaoAte | date: 'dd/MM/yyyy'}}</p>
     </ion-item>
   </ion-list>
 </ion-content>

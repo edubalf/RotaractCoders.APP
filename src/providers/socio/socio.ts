@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { Storage } from '@ionic/storage';
 import { SocioResult } from '../../models/results/socio-result';
 import { Config } from '../../config';
 
@@ -10,38 +9,42 @@ export class SocioProvider {
 
   config: Config = new Config();
   
-  constructor(
-    private storage: Storage,
-    public http: Http) {}
+  constructor(public http: Http) {}
 
-  listar() {
-    return this.storage.get('socio').then(lista => lista);
+  listar(codigoClube: string) {
+    return this.http.get(this.config.apiUrl + 'api/Socio/' + codigoClube)
+      .map(res => res.json());
   }
 
-  atualizar() {
-    return this.http.get(this.config.apiUrl + 'api/Socio')
-      .map(res => {
-
-        let lista: any = res.json();
-        
-        //lista.forEach(element => {
-          //element.foto = this.readThis(element.foto);
-        //});
-
-        this.storage.set('socio', lista);
-      });
+  listarRdrs() {
+    return this.http.get(this.config.apiUrl + 'api/Socio/ListarRdrs/' + this.config.distrito)
+      .map(res => res.json());
   }
 
-  private readThis(inputValue: any): string {
-    
-    var retorno: string;
-    var file:File = inputValue.files[0];
-    var myReader:FileReader = new FileReader();
-  
-    myReader.onloadend = (e) => {
-      retorno = myReader.result;
-    }
-    myReader.readAsDataURL(file);
-    return retorno;
+  listarPresidentes(gestaoDe: Date, gestaoAte: Date) {
+    return this.http.get(this.config.apiUrl + 'api/Socio/ListarPresidentes/' + this.formatDate(gestaoDe) + '/' + this.formatDate(gestaoAte) + '/' + this.config.distrito)
+      .map(res => res.json());
+  }
+
+  obterPorCodigoSocio(codigoSocio: string) {
+    return this.http.get(this.config.apiUrl + 'api/Socio/obter/' + codigoSocio)
+      .map(res => res.json());
+  }
+
+  obter(codigoClube: string, codigoSocio: string) {
+    return this.http.get(this.config.apiUrl + 'api/Socio/obter/' + codigoSocio + '/' + codigoClube)
+      .map(res => res.json());
+  }
+
+  private formatDate(date) {
+    var d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+
+    return [year, month, day].join('-');
   }
 }

@@ -1,0 +1,101 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Projeto</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      <h2 text-wrap>{{projeto.nome}}</h2>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list no-lines>  
+        <ion-item *ngIf="projeto.nomeClube">
+          Clube
+          <p text-wrap>{{projeto.nomeClube}} - {{projeto.numeroDistrito}}</p>  
+        </ion-item>
+        <ion-item *ngIf="projeto.descricao">
+          Descrição
+          <p text-wrap>{{projeto.descricao}}</p>  
+        </ion-item>
+        <ion-item *ngIf="projeto.resumo">
+          Resumo
+          <p text-wrap>{{projeto.resumo}}</p>
+        </ion-item>
+        <ion-item *ngIf="projeto.dataInicio">
+          Inicio
+          <p>{{projeto.dataInicio | date:'dd/MM/yyyy'}}</p>
+        </ion-item>
+        <ion-item *ngIf="projeto.dataFim">
+          Fim
+          <p>{{projeto.dataFim | date:'dd/MM/yyyy'}}</p>
+        </ion-item>
+        <ion-item *ngIf="projeto.dataFinalizacao">
+          Finalização
+          <p>{{projeto.dataFinalizacao | date:'dd/MM/yyyy'}}</p>
+        </ion-item>
+        <ion-item *ngIf="projeto.justificativa">
+          Justificatica
+          <p text-wrap>{{projeto.justificativa}}</p>
+        </ion-item>
+        <ion-item *ngIf="projeto.resultados">
+          Resultados
+          <p text-wrap>{{projeto.resultados}}</p>
+        </ion-item>
+        <ion-item *ngIf="projeto.dificuldade">
+          Dificuldade
+          <p text-wrap>{{projeto.dificuldade}}</p>
+        </ion-item>
+        <ion-item *ngIf="projeto.licoeAprendidas">
+          Lições aprendidas
+          <p text-wrap>{{projeto.licoeAprendidas}}</p>
+        </ion-item>
+        <ion-item *ngIf="projeto.objetivosGerais.length > 0">
+          Objetivos gerais
+          <p text-wrap *ngFor="let item of projeto.objetivosGerais">&#x26AC; {{item}}</p>
+        </ion-item>
+        <ion-item *ngIf="projeto.objetivosEspecificos.length > 0">
+          Objetivos especificos
+          <p text-wrap *ngFor="let item of projeto.objetivosEspecificos">&#x26AC; {{item}}</p>
+        </ion-item>
+        <ion-item *ngIf="projeto.categoriasPrincipais.length > 0">
+          Categorias principais  
+          <p text-wrap *ngFor="let item of projeto.categoriasPrincipais">&#x26AC; {{item}}</p>
+        </ion-item>
+        <ion-item *ngIf="projeto.categoriasSecundarias.length > 0">
+          Categorias secundarias
+          <p text-wrap *ngFor="let item of projeto.categoriasSecundarias">&#x26AC; {{item}}</p>
+        </ion-item>
+        <ion-item *ngIf="projeto.participantes.length > 0">
+          Participantes
+          <p text-wrap *ngFor="let item of projeto.participantes">&#x26AC; {{item}}</p>
+        </ion-item>
+        <ion-item *ngIf="projeto.publicoAlvo.length > 0">
+          Publico alvo
+          <p text-wrap *ngFor="let item of projeto.publicoAlvo">&#x26AC; {{item}}</p>
+        </ion-item>
+        <ion-item *ngIf="projeto.meiosDeDivulgacao.length > 0">
+          Meios de divulgação
+          <p text-wrap *ngFor="let item of projeto.meiosDeDivulgacao">&#x26AC; {{item}}</p>
+        </ion-item>
+        <ion-item *ngIf="projeto.parcerias.length > 0">
+          Parcerias
+          <p text-wrap *ngFor="let item of projeto.parcerias">&#x26AC; {{item}}</p>
+        </ion-item>
+        <ion-item *ngIf="projeto.tarefas.length > 0">
+          Tarefas
+          <p text-wrap *ngFor="let item of projeto.tarefas">
+            &#x26AC; {{item.data | date:'dd/MM/yyyy'}} - {{item.descricao}}
+          </p>
+        </ion-item>
+        <ion-item *ngIf="projeto.lancamentosFinanceiros.length > 0">
+          Finanças
+          <p text-wrap *ngFor="let item of projeto.lancamentosFinanceiros">
+            &#x26AC; {{item.valor < 0 ? '-' : ''}}R${{item.valor < 0 ? item.valor * -1 : item.valor}} - {{item.data | date:'dd/MM/yyyy'}} - {{item.descricao}}
+          </p>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

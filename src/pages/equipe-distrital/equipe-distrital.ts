@@ -24,15 +24,9 @@ export class EquipeDistritalPage {
         public navCtrl: NavController,
         public navParams: NavParams) {
         
-            this.socioProvider.listar().then(data => {
+            this.socioProvider.listar("100").subscribe(data => {
                 
                 this.lista = data;
-                this.lista = this.lista.filter(x => x.cargos.filter(cargo => cargo.tipoCargo == 'Distrital' && cargo.gestaoDe == 18).length > 0);
-    
-                this.lista.forEach(x => {
-                    let cargo = x.cargos.filter(cargo => cargo.tipoCargo == 'Distrital' && cargo.gestaoDe == 18)[0];
-                    x.cargo = cargo.nome;
-                });
             });
     }
 

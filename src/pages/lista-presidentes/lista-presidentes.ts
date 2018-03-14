@@ -24,10 +24,9 @@ export class ListaPresidentesPage {
         public navCtrl: NavController,
         public navParams: NavParams) {
 
-            this.socioProvider.listar().then(data => {
+            this.socioProvider.listarPresidentes(new Date(2018,7,1), new Date(2017,6,30)).subscribe(data => {
                 
                 this.lista = data;
-                this.lista = this.lista.filter(x => x.cargos.filter(cargo => cargo.nome == 'Presidente' && cargo.gestaoDe == 18).length > 0);
             });
     }
 

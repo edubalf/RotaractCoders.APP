@@ -13,8 +13,8 @@
             {{socio.nome}} <span *ngIf="socio.apelido" item-left>({{socio.apelido}})</span>
         </h2>
       </ion-card-title>
-      <ion-item style="margin-bottom: -14px; margin-left: -5px;" *ngIf="socio.clube">
-          <button ion-button round (click)="abrirClube(socio.clube);">{{socio.clube}}</button>
+      <ion-item style="margin-bottom: -14px; margin-left: -5px;" *ngIf="clube.nome">
+          <button ion-button round (click)="abrirClube(clube.codigo);">{{clube.nome}}</button>
       </ion-item>
       <ion-item *ngIf="socio.dataNascimento">
         <span item-left>Data de nascimento:</span>
@@ -27,7 +27,15 @@
       <h2>Cargos</h2>
     </ion-card-header>
     <ion-card-content>
-      <p *ngFor="let cargo of socio.cargos">{{cargo.nome}} - {{cargo.gestaoDe}}/{{cargo.gestaoAte}}</p>
+      <p *ngFor="let cargo of socio.cargos">{{cargo.tipoCargo}} - {{cargo.nome}} - {{cargo.gestaoDe | date:'dd/MM/yyyy' }} ~ {{cargo.gestaoAte | date:'dd/MM/yyyy'}}</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <h2>Clubes</h2>
+    </ion-card-header>
+    <ion-card-content>
+      <p *ngFor="let clube of socio.clubes">{{clube.nome}} ({{clube.numeroDistrito}}) - {{clube.posse | date:'dd/MM/yyyy'}} ~ {{clube.desligamento | date:'dd/MM/yyyy'}}</p>
     </ion-card-content>
   </ion-card>
   <ion-card>

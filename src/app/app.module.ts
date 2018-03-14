@@ -20,6 +20,7 @@ import { DetalheClubePage } from '../pages/detalhe-clube/detalhe-clube';
 import { DetalheAgendaPage } from '../pages/detalhe-agenda/detalhe-agenda';
 import { DetalheCargoPage } from '../pages/detalhe-cargo/detalhe-cargo';
 import { DetalheSocioPage } from '../pages/detalhe-socio/detalhe-socio';
+import { DetalheProjetoPage } from '../pages/detalhe-projeto/detalhe-projeto';
 import { ListaArquivosPage } from '../pages/lista-arquivos/lista-arquivos';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -31,6 +32,7 @@ import { DadoEstaticoProvider } from '../providers/dado-estatico/dado-estatico';
 import { FaqProvider } from '../providers/faq/faq';
 import { SocioProvider } from '../providers/socio/socio';
 import { ConsolidadoProvider } from '../providers/consolidado/consolidado';
+import { ProjetoProvider } from '../providers/projeto/projeto';
 
 @NgModule({
     declarations: [
@@ -49,7 +51,8 @@ import { ConsolidadoProvider } from '../providers/consolidado/consolidado';
         DetalheCargoPage,
         DetalheAgendaPage,
         ListaArquivosPage,
-        DetalheSocioPage
+        DetalheSocioPage,
+        DetalheProjetoPage
     ],
     imports: [
         BrowserModule,
@@ -75,7 +78,8 @@ import { ConsolidadoProvider } from '../providers/consolidado/consolidado';
         DetalheCargoPage,
         DetalheAgendaPage,
         ListaArquivosPage,
-        DetalheSocioPage
+        DetalheSocioPage,
+        DetalheProjetoPage
     ],
     providers: [
         StatusBar,
@@ -87,7 +91,8 @@ import { ConsolidadoProvider } from '../providers/consolidado/consolidado';
     DadoEstaticoProvider,
     FaqProvider,
     SocioProvider,
-    ConsolidadoProvider
+    ConsolidadoProvider,
+    ProjetoProvider
     ]
 })
 export class AppModule { }

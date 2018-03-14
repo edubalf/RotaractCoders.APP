@@ -24,14 +24,17 @@ export class ClubesPage {
         public navCtrl: NavController,
         public navParams: NavParams) {
 
-            this.clubeProvider.listar().then(data => {
+            this.clubeProvider.listar().subscribe(data => {
                 this.lista = data;
+
+                this.lista = this.lista.filter(x => x.dataFechamento == null);
             });
     }
 
-    abrirClube(clube: ClubeResult) {
+    abrirClube(codigoClube: string) {
 
-        this.navCtrl.push(DetalheClubePage, { clube: clube });
+        //console.log(codigoClube);
+        this.navCtrl.push(DetalheClubePage, { codigoClube: codigoClube });
     }
 
     ionViewDidLoad() {

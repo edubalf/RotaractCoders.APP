@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { SocioResult } from '../../models/results/socio-result';
+import { SocioClubeResult } from '../../models/results/socio-clube-result';
 import { SocioProvider } from '../../providers/socio/socio';
 import { DetalheSocioPage } from '../detalhe-socio/detalhe-socio';
 
@@ -14,34 +14,35 @@ import { DetalheSocioPage } from '../detalhe-socio/detalhe-socio';
 })
 export class ListaRdrsPage {
 
-    lista: SocioResult[] = [];
+    lista: SocioClubeResult[] = [];
 
     constructor(
         private socioProvider: SocioProvider,
         public navCtrl: NavController,
         public navParams: NavParams) {
 
-            this.socioProvider.listar().then(data => {
+            this.socioProvider.listarRdrs().subscribe(data => {
                 
                 this.lista = data;
-                this.lista = this.lista.filter(x => x.cargos.filter(cargo => cargo.nome == 'Representante Distrital de Rotaract').length > 0);
-                
-                this.lista.forEach(x => {
-                    let cargo = x.cargos.filter(cargo => cargo.nome == 'Representante Distrital de Rotaract')[0];
-                    x.anoRotario = cargo.gestaoDe + '~' + cargo.gestaoAte;
-                });
 
-                this.lista.sort((a, b) => {
-                    if (a.anoRotario < b.anoRotario) return 1;
-                    if (a.anoRotario > b.anoRotario) return -1;
-                    return 0;
-                });
+                this.lista.sort(function(a, b) {
+                    if (a.gestaoDe > b.gestaoDe) {
+                        return -1;
+                      }
+                      if (a.gestaoDe < b.gestaoDe) {
+                        return 1;
+                      }
+                      // a must be equal to b
+                      return 0;
+                  });
             });
         }
 
-    abrirSocio(socio: SocioResult) {
-        
-        this.navCtrl.push(DetalheSocioPage, { socio: socio });
-    }
+        abrirSocio(socio: SocioClubeResult) {
 
+            this.navCtrl.push(DetalheSocioPage, 
+            { 
+                codigoSocio: socio.codigoSocio
+            });
+        }
 }
