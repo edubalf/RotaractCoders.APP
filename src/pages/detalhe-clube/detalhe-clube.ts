@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, LoadingController, NavController, NavParams } from 'ionic-angular';
 import { ClubeResult } from '../../models/results/clube-result';
 import { SocioResult } from '../../models/results/socio-result';
 import { ProjetoResult } from '../../models/results/projeto-result';
@@ -28,8 +28,14 @@ export class DetalheClubePage {
     sociosInativos: SocioResult[] = [];
     projetos: ProjetoResult[] = [];
 
+    loader = this.loadingController.create({
+        content: 'Carrgegando lista de clubes...',
+    });
+    contadorLoad: number = 2;
+
     constructor(
-        public navCtrl: NavController, 
+        public navCtrl: NavController,
+        private loadingController: LoadingController,
         public navParams: NavParams, 
         private socioProvider: SocioProvider,
         private clubeProvider: ClubeProvider,
@@ -37,46 +43,57 @@ export class DetalheClubePage {
 
             var codigoClube: string = navParams.get('codigoClube');
 
-            this.clubeProvider.obter(codigoClube).subscribe(data => {
-                this.clube = data;
+            this.loader.present().then(() => {
 
-                console.log(this.clube);
+                this.clubeProvider.obter(codigoClube).subscribe(data => {
+                    this.clube = data;
 
-                this.socioProvider.listar(codigoClube).subscribe(lista => {
-                    var socios: SocioResult[] = lista;
-    
-                    console.log(socios);
+                    this.socioProvider.listar(codigoClube).subscribe(lista => {
+                        var socios: SocioResult[] = lista;
+        
+                        socios.forEach(x => {
+        
+                            var clubes = x.clubes.filter(clube => clube.nome == this.clube.nome);
+        
+                            if (clubes.length > 0) {
+        
+                                clubes.sort(function(a, b) {
+                                    if (a.posse > b.posse) {
+                                        return -1;
+                                    }
+                                    if (a.posse < b.posse) {
+                                        return 1;
+                                    }
+                                    return 0;
+                                });
 
-                    socios.forEach(x => {
-    
-                        var clubes = x.clubes.filter(clube => clube.nome == this.clube.nome);
-    
-                        if (clubes.length > 0) {
-    
-                            clubes.sort(function(a, b) {
-                                if (a.posse > b.posse) {
-                                    return -1;
+                                if (clubes[0].desligamento.toString().substring(0,4) == '0001') {
+                                    this.sociosAtivos.push(x);
+                                } else {
+                                    this.sociosInativos.push(x);
                                 }
-                                if (a.posse < b.posse) {
-                                    return 1;
-                                }
-                                return 0;
-                            });
-    
-                            console.log(clubes[0].desligamento);
+                            } 
+                        });
 
-                            if (clubes[0].desligamento.toString().substring(0,4) == '0001') {
-                                this.sociosAtivos.push(x);
-                            } else {
-                                this.sociosInativos.push(x);
-                            }
-                        } 
-                    })
-                });
-            });
+                        this.contadorLoad--;
 
-            this.projetoProvider.listar(codigoClube).subscribe(lista => {
-                this.projetos = lista;
+                        if (this.contadorLoad == 0) {
+                            this.loader.dismiss();
+                        }
+
+                    }, err => this.loader.dismiss());
+                }, err => this.loader.dismiss());
+
+                this.projetoProvider.listar(codigoClube).subscribe(lista => {
+                    this.projetos = lista;
+
+                    this.contadorLoad--;
+
+                    if (this.contadorLoad == 0) {
+                        this.loader.dismiss();
+                    }
+
+                }, err => this.loader.dismiss());
             });
     }
 

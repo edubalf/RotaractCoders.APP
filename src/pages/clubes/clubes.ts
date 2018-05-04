@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, LoadingController, NavParams } from 'ionic-angular';
 
 import { ClubeResult } from '../../models/results/clube-result';
 
@@ -19,15 +19,24 @@ export class ClubesPage {
 
     lista: ClubeResult[] = [];
 
+    loader = this.loadingController.create({
+        content: 'Carrgegando lista de clubes...',
+    });
+
     constructor(
         private clubeProvider: ClubeProvider,
+        private loadingController: LoadingController,
         public navCtrl: NavController,
         public navParams: NavParams) {
 
-            this.clubeProvider.listar().subscribe(data => {
-                this.lista = data;
+            this.loader.present().then(() => {
+                this.clubeProvider.listar().subscribe(data => {
+                    this.lista = data;
 
-                this.lista = this.lista.filter(x => x.dataFechamento == null);
+                    this.lista = this.lista.filter(x => x.dataFechamento == null);
+
+                    this.loader.dismiss();
+                }, err => this.loader.dismiss());
             });
     }
 

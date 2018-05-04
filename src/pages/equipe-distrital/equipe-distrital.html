@@ -9,12 +9,12 @@
 
 <ion-content padding>
   <ion-list no-lines>
-    <ion-item *ngFor="let item of lista" (click)="abrirSocio(item)">
-      <ion-avatar item-start> 
+    <ion-item *ngFor="let item of lista" (click)="abrirSocio(item.codigoSocio)">
+      <ion-avatar item-start>
         <img src={{item.foto}} imageViewer>
       </ion-avatar>
-      <h2 text-left>{{item.nome}}</h2>
-      <p text-left>{{item.cargo}}</p>
+      <h2 text-left>{{item.nomeSocio}}</h2>
+      <h4 text-left>{{item.nomeCargo}}</h4>
     </ion-item>
   </ion-list>
 </ion-content>

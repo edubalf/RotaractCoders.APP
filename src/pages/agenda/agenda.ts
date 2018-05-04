@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, LoadingController, NavController, NavParams } from 'ionic-angular';
 import { AgendaResult } from '../../models/results/agenda-result';
 import { EventoProvider } from '../../providers/evento/evento';
 import { DetalheAgendaPage } from '../detalhe-agenda/detalhe-agenda';
@@ -13,12 +13,26 @@ export class AgendaPage {
 
   lista: AgendaResult[] = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public eventoProvider: EventoProvider) {
+  loader = this.loadingController.create({
+    content: 'Carrgegando lista de eventos...',
+  });
 
-    this.eventoProvider.listar().then(data => {
-      console.log(data);
-      this.lista = data
-    });
+  constructor(
+    public navCtrl: NavController,
+    private loadingController: LoadingController,
+    public navParams: NavParams,
+    public eventoProvider: EventoProvider) {
+
+      this.loader.present().then(() => {
+
+        this.eventoProvider.listar().then(data => {
+          
+          this.lista = data;
+          console.log(this.lista);
+          
+          this.loader.dismiss();
+        }, err => this.loader.dismiss());
+      });
   }
 
   ionViewDidLoad() {

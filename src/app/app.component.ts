@@ -51,9 +51,11 @@ export class MyApp {
         this.loader.present().then(() => {
             this.consolidadoProvider.atualizar().then(retorno => {
                 retorno.subscribe(() => {
-                    this.openPage({ title: 'Distríto 4430', component: HomePage });
+
+                    this.openPage({ title: 'Distríto 443', component: HomePage });
                     this.loader.dismiss();
                 }, err => {
+                    
                     this.loader.dismiss();
                 });
             });    

@@ -20,15 +20,22 @@ export class HomePage {
     private dadoEstaticoProvider: DadoEstaticoProvider) {
 
       this.dadoEstaticoProvider.buscar("oqueerotaract").then(retorno => {
-        this.oqueerotaract = retorno.descricao;
+        
+        if (retorno != null) {
+          this.oqueerotaract = retorno.descricao;  
+        }
       });
 
       this.dadoEstaticoProvider.buscar("numeroSocios").then(retorno => {
-        this.qtdsocio = retorno.descricao;
+        if (retorno != null) {
+          this.qtdsocio = retorno.descricao;
+        }
       });
 
       this.dadoEstaticoProvider.buscar("numeroClubes").then(retorno => {
-        this.qtdclube = retorno.descricao;
+        if (retorno != null) {
+          this.qtdclube = retorno.descricao;
+        }
       });
   }
 }

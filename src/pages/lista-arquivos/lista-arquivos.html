@@ -3,13 +3,13 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>{{download.nome}}</ion-title>
+    <ion-title>{{nome}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <ion-list>
-    <a ion-item *ngFor="let item of download.links" href="{{item.link}}">
+    <a ion-item *ngFor="let item of lista" href="{{item.link}}">
       {{item.nome}}
     </a>
   </ion-list>

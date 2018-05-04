@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
 import { CargoResult } from '../../models/results/cargo-result';
-
 import { DetalheCargoPage } from '../detalhe-cargo/detalhe-cargo';
 
 @IonicPage()
@@ -55,14 +53,77 @@ export class ListaCargosPage {
                 'Preparar a ata das reuniões, mostrando as discussões e decisões tomadas contendo os seguintes pontos:<ul><li>Data, horário e local</li><li>Dirigente presidindo a reunião</li><li>Membros presentes</li><li>Aprovação e correção da ata da última reunião</li><li>Declaração do tesoureiro</li><li>Resumo dos relatórios apresentados por dirigentes e comissões</li><li>Resumo da agenda (incluindo itens antigos e novos) e decisões tomadas</li><li>Avisos</li><li>Encerramento</li></ul>'
             ]
         });
+
+        this.lista.push({
+            nome: 'Tesoureiro',
+            descricao: 'O tesoureiro trabalha com o secretário para manter registros financeiros precisos, devendo ser uma pessoa responsável e detalhista.<br><br>Ao deixar o cargo no final do ano rotário, o tesoureiro deve fornecer aos associados do clube e ao tesoureiro entrante um relatório final, o qual deve fazer parte dos arquivos permanentes do clube',
+            responsabilidades: [
+                'Presidir a comissão financeira',
+                'Coletar as cotas per capita;',
+                'Depositar as cotas per capita e verbas provenientes de eventos de arrecadação de fundos;',
+                'Pagar as contas e fazer reembolsos de despesas do clube;',
+                'Preparar e gerenciar o orçamento;',
+                'Preparar um relatório mensal com os seguintes itens:<ul><li>Verbas do clube disponíveis no início e fim do mês</li><li>Renda e respectiva fonte (como cotas per capita ou evento de arrecadação de fundos)</li><li>Fazer pagamentos, indicando o item e o recebedor dos fundos</li>',
+                'Assegurar que o clube cumpra todas as exigências governamentais referentes a fornecimento de relatórios financeiros.'
+            ]
+        });
+
+        this.lista.push({
+            nome: 'Comissão de Serviços Internos',
+            descricao: '',
+            responsabilidades: [
+                'Desenvolver estratégias para recrutar novos associados e manter atuantes os atuais associados',
+                'Divulgar as atividades do clube aos associados e público em geral',
+                'Planejar atividades sociais e de networking',
+                'Manter arquivo sobre a história do clube, incluindo fotografias e descrições de atividades do clube'
+            ]
+        });
+
+        this.lista.push({
+            nome: 'Comissão de Serviços à Comunidade',
+            descricao: '',
+            responsabilidades: [
+                'Analisar sugestões dos associados para projetos comunitários, assegurando que atendam a necessidades reais e que possam ser realizados com sucesso pelo clube',
+                'Planejar o projeto anual comunitário do clube',
+                'Liderar, organizar e implementar o projeto comunitário'
+            ]
+        });
+
+        this.lista.push({
+            nome: 'Comissão de Serviços Internacionais',
+            descricao: '',
+            responsabilidades: [
+                'Analisar sugestões dos associados para projetos internacionais, assegurando que atendam a necessidades reais e que possam ser realizados com sucesso pelo clube',
+                'Planejar o projeto anual internacional do clube',
+                'Liderar, organizar e implementar o projeto internacional',
+                'Desenvolver atividades adicionais que promovam a compreensão internacional entre associados e comunidades'
+            ]
+        });
+
+        this.lista.push({
+            nome: 'Comissão de Desenvolvimento Profissional',
+            descricao: '',
+            responsabilidades: [
+                'Pedir aos associados sugestões para atividades de desenvolvimento profissional',
+                'Revisar e planejar atividades',
+                'Descobrir recursos na comunidade',
+                'Liderar, organizar e implementar as atividades'
+            ]
+        });
+
+        this.lista.push({
+            nome: 'Comissão de Finanças',
+            descricao: '',
+            responsabilidades: [
+                'Decidir de que forma o clube irá financiar suas atividades',
+                'Esforçar-se para manter as cotas per capita baixas e o clube financeiramente autossuficiente',
+                'Coletar cotas do distrito e clube',
+                'Conseguir doações monetárias e em espécie de empresas e organizações'
+            ]
+        });
     }
 
     abrirDetalhe(cargo: CargoResult) {
         this.navCtrl.push(DetalheCargoPage, { cargo: cargo });
     }
-
-    ionViewDidLoad() {
-        console.log('ionViewDidLoad ListaCargosPage');
-    }
-
 }

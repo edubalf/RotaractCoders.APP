@@ -17,6 +17,10 @@ export class DadoEstaticoProvider {
   buscar(nome) {
 
     return this.storage.get('dado-estatico').then(lista => {
+      
+      if (lista == null)
+        return null;
+      
       return lista.filter(x => x.nome == nome)[0] ;
     });
   }

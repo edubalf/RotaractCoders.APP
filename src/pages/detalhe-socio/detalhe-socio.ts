@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, LoadingController, NavController, NavParams } from 'ionic-angular';
 import { SocioResult } from '../../models/results/socio-result';
 import { DetalheClubePage } from '../detalhe-clube/detalhe-clube';
 import { ClubeProvider } from '../../providers/clube/clube';
@@ -20,24 +20,30 @@ export class DetalheSocioPage {
   socio: SocioResult = new SocioResult();
   clube: ClubeResult = new ClubeResult();
 
+  loader = this.loadingController.create({
+    content: 'Carrgegando lista da equipe distrital...',
+  });
+
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
+    private loadingController: LoadingController,
     public navParams: NavParams, 
     private clubeProvider: ClubeProvider, 
     private socioProvider: SocioProvider) {
     
       var codigoSocio: string = navParams.get('codigoSocio');
 
-      console.log(codigoSocio);
+      this.loader.present().then(() => {
 
-      this.socioProvider.obterPorCodigoSocio(codigoSocio).subscribe(data => {
-        this.socio = data;
+        this.socioProvider.obterPorCodigoSocio(codigoSocio).subscribe(data => {
+          this.socio = data;
 
-        console.log(this.socio);
+          this.clubeProvider.obter(this.socio.codigoClube).subscribe(clube => {
+            this.clube = clube;
 
-        this.clubeProvider.obter(this.socio.codigoClube).subscribe(clube => {
-          this.clube = clube;
-        });
+            this.loader.dismiss();
+          }, err => this.loader.dismiss());
+        }, err => this.loader.dismiss());
       });
   }
 

@@ -10,14 +10,14 @@ import { ArquivoResult } from '../../models/results/arquivo-result';
 })
 export class ListaArquivosPage {
 
-    download: ArquivoResult;
+    lista: ArquivoResult[] = [];
+    nome: string;
 
     constructor(public navCtrl: NavController, public navParams: NavParams) {
-        this.download = this.navParams.get('download');
-    }
+        this.lista = this.navParams.get('lista');
+        this.nome = this.lista[0].categoria;
 
-    ionViewDidLoad() {
-        console.log('ionViewDidLoad ListaArquivosPage');
+        console.log(this.lista);
     }
 
 }

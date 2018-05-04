@@ -21,6 +21,13 @@ export class SocioProvider {
       .map(res => res.json());
   }
 
+  listarEquipeDistrital(gestaoDe: Date, gestaoAte: Date) {
+    
+    console.log(this.config.apiUrl + 'api/Socio/ListarEquipeDistrital/' + this.formatDate(gestaoDe) + '/' + this.formatDate(gestaoAte) + '/' + this.config.distrito);
+    return this.http.get(this.config.apiUrl + 'api/Socio/ListarEquipeDistrital/' + this.formatDate(gestaoDe) + '/' + this.formatDate(gestaoAte) + '/' + this.config.distrito)
+      .map(res => res.json());
+  }
+
   listarPresidentes(gestaoDe: Date, gestaoAte: Date) {
     return this.http.get(this.config.apiUrl + 'api/Socio/ListarPresidentes/' + this.formatDate(gestaoDe) + '/' + this.formatDate(gestaoAte) + '/' + this.config.distrito)
       .map(res => res.json());

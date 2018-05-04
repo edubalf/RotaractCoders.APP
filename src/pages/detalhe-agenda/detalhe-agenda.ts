@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, LoadingController, NavController, NavParams } from 'ionic-angular';
 import { AgendaResult } from '../../models/results/agenda-result';
 
 @IonicPage()
@@ -11,12 +11,19 @@ export class DetalheAgendaPage {
 
   evento: AgendaResult;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.evento = navParams.get('evento');
-  }
+  loader = this.loadingController.create({
+    content: 'Carrgegando lista de eventos...',
+  });
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad DetalheAgendaPage');
-  }
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams, 
+    private loadingController: LoadingController) {
 
+      this.loader.present().then(() => {
+
+        this.evento = navParams.get('evento');
+        this.loader.dismiss();
+      });
+  }
 }

@@ -18,6 +18,7 @@ import { ArquivoProvider } from '../../providers/arquivo/arquivo';
 export class DownloadsPage {
 
     lista: ArquivoResult[] = [];
+    listaCategorias: string[] = [];
 
     constructor(
         private arquivoProvider: ArquivoProvider,
@@ -26,15 +27,13 @@ export class DownloadsPage {
 
         this.arquivoProvider.listar().then(data => {
             this.lista = data;
+            this.listaCategorias = this.lista.map(x => x.categoria).filter((v, i, a) => a.indexOf(v) === i);
+
+            console.log(this.lista);
         });
     }
 
-    abrirLinks(download: ArquivoResult) {
-        this.navCtrl.push(ListaArquivosPage, { download: download });
+    abrirLinks(categoria: string) {
+        this.navCtrl.push(ListaArquivosPage, { lista: this.lista.filter(x => x.categoria == categoria) });
     }
-
-    ionViewDidLoad() {
-        console.log('ionViewDidLoad DownloadsPage');
-    }
-
 }

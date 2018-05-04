@@ -18,21 +18,11 @@ export class ConsolidadoProvider {
 
   atualizar() {
     
-    //this.storage.set('dataUltimaAtualizacao', null);
-
     return this.storage.get('dataUltimaAtualizacao').then(retorno => {
+     
+      var data: Date;
 
       console.log(retorno);
-      /*
-      this.storage.set('arquivo', null);
-      this.storage.set('clube', null);
-      this.storage.set('dado-estatico', null);
-      this.storage.set('agenda', null);
-      this.storage.set('faq', null);
-      this.storage.set('socio', null);
-      */
-
-     var data: Date;
 
       if (retorno == null) {
         data = new Date(2018,1,1);
@@ -42,10 +32,22 @@ export class ConsolidadoProvider {
 
       return this.http.get(this.config.apiUrl + 'api/Consolidado/' + data.getFullYear() + '-' + data.getMonth() + '-' + data.getDay())
         .map(res => {
-          this.atulizarTabela('arquivo', res.json().arquivos);
-          this.atulizarTabela('dado-estatico', res.json().dadosEstaticos);
-          this.atulizarTabela('agenda', res.json().eventos);
-          this.atulizarTabela('faq', res.json().faqs);
+          
+          if (retorno == null) {
+
+            this.storage.set('arquivo', res.json().arquivos);
+            this.storage.set('dado-estatico', res.json().dadosEstaticos);
+            this.storage.set('agenda', res.json().eventos);
+            this.storage.set('faq', res.json().faqs);
+
+          } else {
+
+            this.atulizarTabela('arquivo', res.json().arquivos);
+            this.atulizarTabela('dado-estatico', res.json().dadosEstaticos);
+            this.atulizarTabela('agenda', res.json().eventos);
+            this.atulizarTabela('faq', res.json().faqs);
+            
+          }
           
           this.storage.set('dataUltimaAtualizacao', res.json().data);
         }).catch(this.handleError);
@@ -68,17 +70,24 @@ export class ConsolidadoProvider {
 
   private atulizarTabela(nomeTabela: string, dadosNovos: any){
     
+    if (dadosNovos == null) return;
+
     return this.storage.get(nomeTabela).then(lista => {
       
-      var dadosSalvos: any = lista;
-      
+      var dadosSalvos: any = new Array();
+
+      if (lista != null) {
+        dadosSalvos = lista;
+      }
+
+
       dadosNovos.forEach(dado => {
         if (dado.bitAtivo == false) {
 
-          if (dadosSalvos.findIndex(clube => clube.rowKey == dado.rowKey) >= 0) {
+          if (dadosSalvos != null && dadosSalvos.findIndex(clube => clube.rowKey == dado.rowKey) >= 0) {
             dadosSalvos = dadosSalvos.filter(clube => clube.rowKey != dado.rowKey);
           }
-        } else if (dadosSalvos.findIndex(clube => clube.rowKey == dado.rowKey) >= 0) {
+        } else if (dadosSalvos != null && dadosSalvos.findIndex(clube => clube.rowKey == dado.rowKey) >= 0) {
           dadosSalvos[dadosSalvos.findIndex(clube => clube.rowKey == dado.rowKey)] = dado;
         } else {
           dadosSalvos.push(dado);

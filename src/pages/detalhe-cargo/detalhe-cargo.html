@@ -8,9 +8,10 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card>
-    <ion-card-content>
-      {{cargo.descricao}}
+
+  <ion-card *ngIf="cargo.descricao">
+    <ion-card-content [innerHTML]="cargo.descricao">
+      
     </ion-card-content>
   </ion-card>
 

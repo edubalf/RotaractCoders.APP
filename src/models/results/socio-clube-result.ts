@@ -11,7 +11,7 @@ export class SocioClubeResult {
     gestaoDe: Date;
     gestaoAte: Date;
     programa: string;
-
+ 
     constructor(values: Object = {}) {
         Object.assign(this, values);
     }
