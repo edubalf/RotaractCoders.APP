@@ -4,6 +4,8 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpModule } from '@angular/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
+import { LaunchNavigator } from '@ionic-native/launch-navigator';
+import { Geolocation } from '@ionic-native/geolocation';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -84,15 +86,17 @@ import { ProjetoProvider } from '../providers/projeto/projeto';
     providers: [
         StatusBar,
         SplashScreen,
+        Geolocation,
         { provide: ErrorHandler, useClass: IonicErrorHandler },
-    EventoProvider,
-    ArquivoProvider,
-    ClubeProvider,
-    DadoEstaticoProvider,
-    FaqProvider,
-    SocioProvider,
-    ConsolidadoProvider,
-    ProjetoProvider
+        LaunchNavigator,
+        EventoProvider,
+        ArquivoProvider,
+        ClubeProvider,
+        DadoEstaticoProvider,
+        FaqProvider,
+        SocioProvider,
+        ConsolidadoProvider,
+        ProjetoProvider
     ]
 })
 export class AppModule { }

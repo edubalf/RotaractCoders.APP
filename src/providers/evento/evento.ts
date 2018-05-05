@@ -15,13 +15,12 @@ export class EventoProvider {
     public http: Http) { }
 
   listar() {
-    return this.storage.get('agenda').then(lista => lista);
+    return this.http.get(this.config.apiUrl + 'api/Evento')
+      .map(res => res.json());
   }
 
-  atualizar() {
-    return this.http.get(this.config.apiUrl + 'api/Evento')
-      .map(res => {
-        this.storage.set('agenda', res.json());
-      });
+  obter(id) {
+    return this.http.get(this.config.apiUrl + 'api/Evento/' + id)
+      .map(res => res.json());
   }
 }

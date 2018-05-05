@@ -14,13 +14,7 @@ export class FaqProvider {
     public http: Http) {}
 
   listar() {
-    return this.storage.get('faq').then(lista => lista);
-  }
-
-  atualizar() {
     return this.http.get(this.config.apiUrl + 'api/Faq')
-      .map(res => {
-        this.storage.set('faq', res.json());
-      });
+      .map(res => res.json());
   }
 }

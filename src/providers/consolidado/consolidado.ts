@@ -37,15 +37,13 @@ export class ConsolidadoProvider {
 
             this.storage.set('arquivo', res.json().arquivos);
             this.storage.set('dado-estatico', res.json().dadosEstaticos);
-            this.storage.set('agenda', res.json().eventos);
-            this.storage.set('faq', res.json().faqs);
+            //this.storage.set('faq', res.json().faqs);
 
           } else {
 
             this.atulizarTabela('arquivo', res.json().arquivos);
             this.atulizarTabela('dado-estatico', res.json().dadosEstaticos);
-            this.atulizarTabela('agenda', res.json().eventos);
-            this.atulizarTabela('faq', res.json().faqs);
+            //this.atulizarTabela('faq', res.json().faqs);
             
           }
           

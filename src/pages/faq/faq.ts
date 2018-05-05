@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { IonicPage, NavController, LoadingController, NavParams } from 'ionic-angular';
 import { FaqResult } from '../../models/results/faq-result';
-
 import { FaqProvider } from '../../providers/faq/faq';
 
 @IonicPage()
@@ -17,17 +15,24 @@ export class FaqPage {
 
     lista: FaqResult[] = [];
 
+    loader = this.loadingController.create({
+        content: 'Carregando perguntas frequentes...',
+    });
+
     constructor(
         private faqProvider: FaqProvider,
         public navCtrl: NavController,
-        public navParams: NavParams) {
+        public navParams: NavParams,
+        private loadingController: LoadingController) {
 
-            this.faqProvider.listar().then(data => {
-                this.lista = data;
+            this.loader.present().then(() => {
+                this.faqProvider.listar().subscribe(data => {
+                    
+                    this.lista = data;
+                    
+                    this.loader.dismiss();
+
+                }, err => this.loader.dismiss());
             });
-    }
-
-    ionViewDidLoad() {
-        console.log('ionViewDidLoad FaqPage');
     }
 }

@@ -25,7 +25,7 @@ export class AgendaPage {
 
       this.loader.present().then(() => {
 
-        this.eventoProvider.listar().then(data => {
+        this.eventoProvider.listar().subscribe(data => {
           
           this.lista = data;
           console.log(this.lista);
@@ -39,7 +39,7 @@ export class AgendaPage {
     console.log('ionViewDidLoad AgendaPage');
   }
 
-  abrirDetalhe(evento) {
-    this.navCtrl.push(DetalheAgendaPage, { evento: evento });
+  abrirDetalhe(id) {
+    this.navCtrl.push(DetalheAgendaPage, { id: id });
   }
 }

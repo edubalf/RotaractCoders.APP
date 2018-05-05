@@ -5,6 +5,10 @@ export class AgendaResult {
     tipoEvento: string;
     programa: string;
     descricao: string;
+    endereco: string;
+    complemento: string;
+    latitude: number;
+    longitude: number;
     dataCriacao: Date;
     dataEvento: Date;
 

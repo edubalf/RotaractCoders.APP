@@ -17,7 +17,7 @@ export class ListaPresidentesPage {
     lista: SocioClubeResult[] = [];
 
     loader = this.loadingController.create({
-        content: 'Carrgegando lista de presidentes...',
+        content: 'Carregando lista de presidentes...',
     });
 
     constructor(
