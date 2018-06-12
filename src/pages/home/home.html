@@ -3,55 +3,28 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Distríto 4430</ion-title>
+    <ion-title>DISTRITO 4430</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-card>
-          <ion-card-header>
-            <h2><b>O que é rotaract?</b></h2>
-          </ion-card-header>
-          <ion-card-content class="item item-text-wrap">
-            <p>
-              {{oqueerotaract}}
-            </p>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-card>
-          <ion-card-header>
-            <ion-item>
-              <h1><b>Sócios</b></h1>
-            </ion-item>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-item>
-              <h2>{{qtdsocio}}</h2>
-            </ion-item>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col>
-        <ion-card>
-          <ion-card-header>
-            <ion-item>
-              <h1><b>Clubes</b></h1>
-            </ion-item>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-item>
-              <h2>{{qtdclube}}</h2>
-            </ion-item>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <div text-center>
+    <h2 style="margin-top: 10px;">Gestão 2018-19</h2>
+    <img width="200px" src="assets/fotos/lema.png" />
+  </div>
+  <div class="dados">
+    <div class="div-base" text-center>
+      <div class="circulo">
+        <p style="color: #f37521; font-size: 50px; margin-top: 8px;">{{qtdsocio}}</p>
+        <p style="color: #db1a5d; font-size: 25px; margin-top:-55px;line-height: 20px;">Sócios<br>Ativos</p>
+      </div>
+    </div>
+    <div class="div-base">
+      <div class="circulo">
+        <p style="color: #f37521; font-size: 50px; margin-top: 8px;">{{qtdclube}}</p>
+        <p style="color: #db1a5d; font-size: 25px; margin-top:-55px;line-height: 20px;">Clubes<br>Ativos</p>
+      </div>
+    </div>
+  </div>
+  <div class="rodape"></div>
 </ion-content>

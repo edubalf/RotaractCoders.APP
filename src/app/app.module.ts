@@ -6,6 +6,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { Geolocation } from '@ionic-native/geolocation';
+import { OneSignal } from '@ionic-native/onesignal';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -87,6 +88,7 @@ import { ProjetoProvider } from '../providers/projeto/projeto';
         StatusBar,
         SplashScreen,
         Geolocation,
+        OneSignal,
         { provide: ErrorHandler, useClass: IonicErrorHandler },
         LaunchNavigator,
         EventoProvider,

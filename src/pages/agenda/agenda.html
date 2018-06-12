@@ -9,8 +9,10 @@
 
 <ion-content padding>
   <ion-list>
-    <button ion-item *ngFor="let item of lista" (click)="abrirDetalhe(item.rowKey)">
-      {{item.nome}} - {{item.realizador}} - {{item.dataEvento | date : 'dd/MM/yyyy'}}
-    </button>
+    <ion-item *ngFor="let item of lista" (click)="abrirDetalhe(item.rowKey)">
+        <h2>{{item.nome}}</h2>
+        <p text-center>{{item.realizador}} - {{item.dataEvento | date : 'dd/MM/yyyy'}}</p>
+    </ion-item>
   </ion-list>
+  <div class="rodape rodape-scroll"></div>
 </ion-content>

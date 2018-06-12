@@ -90,4 +90,5 @@
     <plugin name="cordova-plugin-geolocation" spec="^2.4.3">
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="Roteirizar seu caminho até o evento" />
     </plugin>
+    <plugin name="onesignal-cordova-plugin" spec="^2.4.0" />
 </widget>

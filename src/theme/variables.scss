@@ -39,7 +39,7 @@ $colors: (
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #222,
-  rotaract: #ec0775
+  rotaract: #c0004b
 );
 
 
@@ -85,5 +85,98 @@ $colors: (
 // Fonts
 // --------------------------------------------------
 
-@import "roboto";
-@import "noto-sans";
+//@import "roboto";
+//@import "noto-sans";
+
+.menu-inner .content {
+  background-color: #f8a81b !important;
+}
+
+.menu-inner .content .item {
+  background-color: #f8a81b !important;
+  color: #db1a5d;
+}
+
+@font-face {
+  font-family: FrutigerFont;
+  src: url("../assets/fonts/FRUTIGER.OTF") format("");
+}
+
+@font-face {
+  font-family: HurmeFont;
+  src: url("../assets/fonts/HURME.OTF") format("");
+}
+
+body, p, span, button, h1, h2, h3, h4, h5, h6 {
+  font-family: "FrutigerFont" !important;
+}
+
+.ion-page {
+  background: url('../assets/teste.png') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+
+.ion-page > ion-content{
+  background-color: transparent;
+}
+
+ion-item {
+  background-color: transparent!important;
+}
+
+.rodape {
+  background: url('../assets/rodape.png');
+  background-repeat: no-repeat;
+  -webkit-background-size:  cover;
+  -moz-background-size:  cover;
+  background-size: 100% 70px;
+  background-position: bottom;
+
+  height: 70px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.rodape-scroll {
+  position: relative;
+}
+
+.list {
+ min-height: calc(100% - 50px);
+ margin-bottom: 0px !important;
+}
+
+h2 {
+  color: #125eaa;
+  font-family: "HurmeFont" !important;
+  font-size: 20px !important;
+}
+
+.label p {
+  color: white !important; 
+}
+
+.item {
+  border-bottom: 1px solid #f37521 !important;
+  border-bottom-width: 95% !important;
+}
+
+.item-inner {
+  border-bottom: none !important;
+}
+
+.someclass {
+  box-shadow:
+  0 0 0 2px white,
+  0 0 0 4px #125eaa;
+  -moz-box-shadow:
+  0 0 0 2px white,
+  0 0 0 4px #125eaa;
+  -webkit-shadow:
+  0 0 0 2px white,
+  0 0 0 4px #125eaa;
+}

@@ -12,6 +12,8 @@
   <ion-list>
     <ion-item *ngFor="let item of lista" (click)="abrirClube(item.codigo)">
       <h2>{{item.nome}}</h2>
+      <p text-center>Sócios: <span style="color: #f8a81b;">7</span> / Projetos: <span style="color: #f8a81b;">4</span></p>
     </ion-item>
   </ion-list>
+  <div class="rodape rodape-scroll"></div>
 </ion-content>

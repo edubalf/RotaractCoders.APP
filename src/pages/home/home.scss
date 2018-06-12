@@ -10,3 +10,23 @@ h2 {
   text-align: center;
   font-size:25px!important;
 }
+
+.dados {
+  margin-top: 30px;
+}
+
+.div-base {
+  width:50%;
+  height:100px;
+  float:left;
+}
+
+.circulo {
+  margin: 0 auto;
+  border-radius: 50%;
+  background-color: #f8a81b;
+  height: 130px;
+  width: 130px;
+  border: 4px solid #125eaa;
+  text-align: center;
+}

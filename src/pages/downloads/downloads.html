@@ -10,8 +10,9 @@
 
 <ion-content padding>
   <ion-list>
-    <button ion-item *ngFor="let item of listaCategorias" (click)="abrirLinks(item)">
-      {{item}}
-    </button>
+    <ion-item *ngFor="let item of listaCategorias" (click)="abrirLinks(item)">
+      <h2>{{item}}</h2>
+    </ion-item>
   </ion-list>
+  <div class="rodape rodape-scroll"></div>
 </ion-content>

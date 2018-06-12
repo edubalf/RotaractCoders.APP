@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, LoadingController, AlertController, Platform, Content } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { OneSignal } from '@ionic-native/onesignal';
 
 import { HomePage } from '../pages/home/home';
 import { ListaRdrsPage } from '../pages/lista-rdrs/lista-rdrs';
@@ -44,7 +45,8 @@ export class MyApp {
         public splashScreen: SplashScreen,
         private consolidadoProvider: ConsolidadoProvider,
         private loadingController: LoadingController,
-        private alertController: AlertController) {
+        private alertController: AlertController,
+        private oneSignal: OneSignal) {
         
         this.initializeApp();
 
@@ -64,7 +66,7 @@ export class MyApp {
         this.pages = [
             { title: 'Distríto 4430', component: HomePage },
             { title: 'Galeria RDRs', component: ListaRdrsPage },
-            { title: 'Lema rotário', component: LemaRotarioPage },
+            //{ title: 'Lema rotário', component: LemaRotarioPage },
             { title: 'Presidentes', component: ListaPresidentesPage },
             { title: 'Clubes', component: ClubesPage },
             { title: 'Equipe distrital', component: EquipeDistritalPage },
@@ -81,7 +83,17 @@ export class MyApp {
       });
 
     initializeApp() {
+
         this.platform.ready().then(() => {
+            let funcaoRetorno = (data) => {
+                console.log('Notificações: ' + JSON.stringify(data));
+             };
+
+             //this.oneSignal.startInit("0f695cbd-451f-4791-94e6-c0e46f1fc5e8",
+             //    "607439658518")
+             //    .handleNotificationOpened(funcaoRetorno)
+             //    .endInit();
+
             this.statusBar.styleDefault();
             this.splashScreen.hide();
         });
