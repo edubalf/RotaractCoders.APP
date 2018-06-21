@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, LoadingController, NavParams } from 'ionic-angular';
-import { DetalheSocioPage } from '../detalhe-socio/detalhe-socio';
 import { SocioClubeResult } from '../../models/results/socio-clube-result';
 import { SocioProvider } from '../../providers/socio/socio';
+import { DetalheSocioIntermediarioPage } from '../detalhe-socio-intermediario/detalhe-socio-intermediario';
 
 @IonicPage()
 @Component({
@@ -38,7 +38,7 @@ export class EquipeDistritalPage {
 
     abrirSocio(codigoSocio: string) {
         
-        this.navCtrl.push(DetalheSocioPage, { 
+        this.navCtrl.push(DetalheSocioIntermediarioPage, { 
             codigoSocio: codigoSocio
         });
     }

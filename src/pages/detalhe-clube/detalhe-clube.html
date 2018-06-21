@@ -1,13 +1,18 @@
 <ion-header>
   <ion-navbar color="rotaract">
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>{{clube.nome}}</ion-title>
+    <ion-title>{{dados.clube.nome}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <ion-tabs>
+    <ion-tab tabIcon="water" tabTitle="Dados" [root]="tabDados" [rootParams]="dados.clube"></ion-tab>
+    <ion-tab tabIcon="leaf" tabTitle="Sócios ativos" [root]="tabSociosAtivos" [rootParams]="dados.sociosAtivos"></ion-tab>
+    <ion-tab tabIcon="water" tabTitle="Sócios inativos" [root]="tabSociosInativos" [rootParams]="dados.sociosInativos"></ion-tab>
+    <ion-tab tabIcon="leaf" tabTitle="Projetos" [root]="tabProjetos" [rootParams]="dados.projetos"></ion-tab>
+  </ion-tabs>
+
+  <!--
   <ion-card>
     <ion-card-content>
       <ion-card-title>
@@ -58,21 +63,21 @@
   </ion-card>
 
   <ion-card>
-      <ion-card-header>
-        <h2>Socios inativos</h2>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-list>
-          <ion-item *ngFor="let item of sociosInativos" (click)="abrirSocio(item)">
-            <ion-avatar item-start>
-              <img src={{item.foto}} imageViewer>
-            </ion-avatar>
-            <h2>{{item.nome}}</h2>
-            <p>{{item.cargo}}</p>
-          </ion-item>
-        </ion-list>
-      </ion-card-content>
-    </ion-card>
+    <ion-card-header>
+      <h2>Socios inativos</h2>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let item of sociosInativos" (click)="abrirSocio(item)">
+          <ion-avatar item-start>
+            <img src={{item.foto}} imageViewer>
+          </ion-avatar>
+          <h2>{{item.nome}}</h2>
+          <p>{{item.cargo}}</p>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 
   <ion-card>
     <ion-card-header>
@@ -88,4 +93,5 @@
       </ion-list>
     </ion-card-content>
   </ion-card>
+  -->
 </ion-content>

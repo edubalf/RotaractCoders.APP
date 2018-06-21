@@ -9,20 +9,19 @@
 
 <ion-content padding>
 
-  <ion-card *ngIf="cargo.descricao">
-    <ion-card-content [innerHTML]="cargo.descricao">
+  <div style="min-height: calc(100% - 70px); margin-bottom: 0px !important;">
+    <p style="margin-left: 10px;" *ngIf="cargo.descricao" [innerHtml]="cargo.descricao">
       
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    <ion-card-header>
-      Responsabilidades
-    </ion-card-header>
-    <ion-card-content>
-      <ul>
-        <li *ngFor="let item of cargo.responsabilidades" [innerHTML]="item"></li>
-      </ul>
-    </ion-card-content>
-  </ion-card>
+    </p>
+    <br>
+    <h4 style="margin-left: 10px;">Responsabilidades</h4>  
+    <ul>
+      <li *ngFor="let item of cargo.responsabilidades">
+        <p>
+          <span [innerHtml]="item"></span>
+        </p>
+      </li>
+    </ul>
+  </div>
+  <div class="rodape rodape-scroll"></div>
 </ion-content>

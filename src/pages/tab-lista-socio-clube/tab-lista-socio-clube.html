@@ -1,0 +1,11 @@
+<ion-content padding>
+  <ion-list>
+    <ion-item text-wrap no-lines *ngFor="let item of socios" (click)="abrirSocio(item)">
+      <ion-avatar item-start>
+        <img class="someclass" src={{item.foto}} imageViewer>
+      </ion-avatar>
+      <h2 text-left>{{item.nome}}</h2>
+    </ion-item>
+  </ion-list>
+  <div class="rodape rodape-scroll"></div>
+</ion-content>

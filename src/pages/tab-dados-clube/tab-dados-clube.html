@@ -1,0 +1,32 @@
+<ion-content padding>
+  <div text-center>
+    <br>
+    <h2>
+      {{clube.nome}}
+    </h2>
+    <p *ngIf="clube.dataFundacao">Data de fundação: {{clube.dataFundacao | date:'dd/MM/yyyy'}}</p>
+    <p *ngIf="clube.presidente">Presidente: {{clube.presidente}}</p>
+    <p *ngIf="clube.localReuniao">Local das reuniões: {{clube.localReuniao}}</p>
+    <p *ngIf="clube.horarioReuniao">Horario das reuniões: {{clube.horarioReuniao}}</p>
+    <p>
+      <ion-row>
+        <ion-col *ngIf="clube.facebook">
+          <a style="height: 40px; width: 40px;" href={{clube.facebook}} ion-button clear large>
+            <img src="assets/icon/facebook.ico" />
+          </a>
+        </ion-col>
+        <ion-col *ngIf="clube.instagram">
+          <a style="height: 40px; width: 40px;" href={{clube.instagram}} ion-button clear large>
+            <img src="assets/icon/instagram.ico" />
+          </a>
+        </ion-col>
+        <ion-col *ngIf="clube.email">
+          <a style="height: 40px; width: 40px;" href="mailto:{{clube.email}}" ion-button clear large>
+            <img src="assets/icon/email.ico" />
+          </a>
+        </ion-col>
+      </ion-row>
+    </p>
+  </div>
+  <div class="rodape"></div>
+</ion-content>

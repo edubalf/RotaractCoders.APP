@@ -25,6 +25,14 @@ import { DetalheCargoPage } from '../pages/detalhe-cargo/detalhe-cargo';
 import { DetalheSocioPage } from '../pages/detalhe-socio/detalhe-socio';
 import { DetalheProjetoPage } from '../pages/detalhe-projeto/detalhe-projeto';
 import { ListaArquivosPage } from '../pages/lista-arquivos/lista-arquivos';
+import { TabDadosClubePage } from '../pages/tab-dados-clube/tab-dados-clube';
+import { TabDadosSocioPage } from '../pages/tab-dados-socio/tab-dados-socio';
+import { TabListaCargoSocioPage } from '../pages/tab-lista-cargo-socio/tab-lista-cargo-socio';
+import { TabListaClubeSocioPage } from '../pages/tab-lista-clube-socio/tab-lista-clube-socio';
+import { TabListaProjetoClubePage } from '../pages/tab-lista-projeto-clube/tab-lista-projeto-clube';
+import { TabListaSocioClubePage } from '../pages/tab-lista-socio-clube/tab-lista-socio-clube';
+import { DetalheSocioIntermediarioPage } from '../pages/detalhe-socio-intermediario/detalhe-socio-intermediario';
+import { DetalheClubeIntermediarioPage } from '../pages/detalhe-clube-intermediario/detalhe-clube-intermediario';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -55,7 +63,15 @@ import { ProjetoProvider } from '../providers/projeto/projeto';
         DetalheAgendaPage,
         ListaArquivosPage,
         DetalheSocioPage,
-        DetalheProjetoPage
+        DetalheProjetoPage,
+        TabDadosClubePage,
+        TabDadosSocioPage,
+        TabListaCargoSocioPage,
+        TabListaClubeSocioPage,
+        TabListaProjetoClubePage,
+        TabListaSocioClubePage,
+        DetalheSocioIntermediarioPage,
+        DetalheClubeIntermediarioPage
     ],
     imports: [
         BrowserModule,
@@ -82,7 +98,15 @@ import { ProjetoProvider } from '../providers/projeto/projeto';
         DetalheAgendaPage,
         ListaArquivosPage,
         DetalheSocioPage,
-        DetalheProjetoPage
+        DetalheProjetoPage,
+        TabDadosClubePage,
+        TabDadosSocioPage,
+        TabListaCargoSocioPage,
+        TabListaClubeSocioPage,
+        TabListaProjetoClubePage,
+        TabListaSocioClubePage,
+        DetalheSocioIntermediarioPage,
+        DetalheClubeIntermediarioPage
     ],
     providers: [
         StatusBar,

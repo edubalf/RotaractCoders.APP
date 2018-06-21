@@ -1,0 +1,11 @@
+<ion-content padding>
+  <ion-list>
+    <ion-item text-wrap no-lines *ngFor="let item of projetos" (click)="abrirProjeto(item.codigo)">
+      <h2 class="projeto-titulo-estilo">{{item.nome}}</h2>
+      <p class="projeto-descricao-estilo" text-center>
+        {{item.descricao}}
+      </p>
+    </ion-item>
+  </ion-list>
+  <div class="rodape rodape-scroll"></div>
+</ion-content>

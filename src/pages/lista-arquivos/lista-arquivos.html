@@ -9,8 +9,8 @@
 
 <ion-content padding>
   <ion-list>
-    <a ion-item *ngFor="let item of lista" href="{{item.link}}">
-      {{item.nome}}
+    <a class="link-download" ion-item *ngFor="let item of lista" href="{{item.link}}">
+      <h2>{{item.nome}}</h2>
     </a>
   </ion-list>
   <div class="rodape rodape-scroll"></div>

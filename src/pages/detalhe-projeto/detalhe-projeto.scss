@@ -1,3 +1,29 @@
 page-detalhe-projeto {
 
 }
+
+.tabela-financas {
+    margin-bottom: 15px;
+    padding-right: 10px;
+    width: calc(100% - 10px);
+}
+
+.tabela-financas td {
+    border: 1px solid black;
+    font-size: 11px !important;
+    padding: 3px !important;
+    color: white;
+}
+
+.tabela-financas tr {
+    
+}
+
+.tabela-financas .cabecalho td{
+  color: #125eaa !important;
+  font-family: "HurmeFont" !important;
+}
+
+.tabela-descricao {
+    
+}

@@ -146,7 +146,7 @@ ion-item {
 }
 
 .list {
- min-height: calc(100% - 50px);
+ min-height: calc(100% - 70px);
  margin-bottom: 0px !important;
 }
 
@@ -156,7 +156,12 @@ h2 {
   font-size: 20px !important;
 }
 
-.label p {
+h4 {
+  color: #125eaa;
+  font-family: "HurmeFont" !important;
+}
+
+p {
   color: white !important; 
 }
 

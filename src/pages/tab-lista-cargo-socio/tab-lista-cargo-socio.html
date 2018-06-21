@@ -1,0 +1,11 @@
+<ion-content padding>
+  <ion-list>
+    <ion-item text-wrap no-lines *ngFor="let cargo of socio.cargos">
+      <h2 class="cargo-estilo">{{cargo.nome}} ({{cargo.tipoCargo}})</h2>
+      <p class="dados-cargo-estilo" text-center>
+        {{cargo.gestaoDe | date:'dd/MM/yyyy' }} ~ {{cargo.gestaoAte | date:'dd/MM/yyyy'}}  
+      </p>
+    </ion-item>
+  </ion-list>
+  <div class="rodape rodape-scroll"></div>
+</ion-content>

@@ -50,7 +50,7 @@ export class ListaCargosPage {
                 'Registrar e guardar todas as informações pertinentes ao clube, incluindo dados do quadro associativo, indicação de membros de comissão, comparecimento a reuniões, pagamento de cotas, além de documentos importantes como certificado de fundação, orçamentos e relatórios do clube;',
                 'Notificar o Rotary Club patrocinador a respeito de rotaractianos que estão completando 30 anos de idade que podem ser rotarianos em potencial;',
                 'Fornecer ao presidente informações sobre o clube e associados para que este possa manter o RI atualizado;',
-                'Preparar a ata das reuniões, mostrando as discussões e decisões tomadas contendo os seguintes pontos:<ul><li>Data, horário e local</li><li>Dirigente presidindo a reunião</li><li>Membros presentes</li><li>Aprovação e correção da ata da última reunião</li><li>Declaração do tesoureiro</li><li>Resumo dos relatórios apresentados por dirigentes e comissões</li><li>Resumo da agenda (incluindo itens antigos e novos) e decisões tomadas</li><li>Avisos</li><li>Encerramento</li></ul>'
+                'Preparar a ata das reuniões, mostrando as discussões e decisões tomadas contendo os seguintes pontos:<br><br><ul><li><span>Data, horário e local</span></li><li><span>Dirigente presidindo a reunião</span></li><li><span>Membros presentes</span></li><li><span>Aprovação e correção da ata da última reunião</span></li><li><span>Declaração do tesoureiro</span></li><li><span>Resumo dos relatórios apresentados por dirigentes e comissões</span></li><li><span>Resumo da agenda (incluindo itens antigos e novos) e decisões tomadas</span></li><li><span>Avisos</span></li><li><span>Encerramento</span></li></ul>'
             ]
         });
 
@@ -63,7 +63,7 @@ export class ListaCargosPage {
                 'Depositar as cotas per capita e verbas provenientes de eventos de arrecadação de fundos;',
                 'Pagar as contas e fazer reembolsos de despesas do clube;',
                 'Preparar e gerenciar o orçamento;',
-                'Preparar um relatório mensal com os seguintes itens:<ul><li>Verbas do clube disponíveis no início e fim do mês</li><li>Renda e respectiva fonte (como cotas per capita ou evento de arrecadação de fundos)</li><li>Fazer pagamentos, indicando o item e o recebedor dos fundos</li>',
+                'Preparar um relatório mensal com os seguintes itens:<br><br><ul><li><span>Verbas do clube disponíveis no início e fim do mês</span></li><li><span>Renda e respectiva fonte (como cotas per capita ou evento de arrecadação de fundos)</span></li><li><span>Fazer pagamentos, indicando o item e o recebedor dos fundos</span></li>',
                 'Assegurar que o clube cumpra todas as exigências governamentais referentes a fornecimento de relatórios financeiros.'
             ]
         });

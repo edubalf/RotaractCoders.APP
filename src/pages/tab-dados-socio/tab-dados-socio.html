@@ -1,0 +1,30 @@
+<ion-content padding>
+  <br>
+  <div text-center>
+    <img class="someclass" style="border-radius: 50%;" width="150" height="150" src={{socio.foto}}/>
+  </div>
+  <br>
+  <div text-center>
+    <h2>
+      {{socio.nome}} <span class="apelido" *ngIf="socio.apelido" item-left>({{socio.apelido}})</span>
+    </h2>
+    <p>
+      <a *ngIf="socio.facebook" style="height: 40px;" href={{socio.facebook}} ion-button clear small>
+        <img height="40" width="40" src="assets/icon/facebook.ico" />
+      </a>
+      <a *ngIf="socio.email" style="height: 40px;" href="mailto:{{socio.email}}" ion-button clear small>
+        <img height="40" width="40" src="assets/icon/email.ico" />
+      </a>
+      <a *ngIf="socio.instagram" style="height: 40px;" href="mailto:{{socio.instagram}}" ion-button clear small>
+        <img height="40" width="40" src="assets/icon/instagram.ico" />
+      </a>
+    </p>
+    <p>
+      <button class="botao-clube" ion-button round (click)="abrirClube(clube.codigo);">{{clube.nome}}</button>
+    </p>
+  </div>
+  <p class="paragrafo" *ngIf="socio.dataNascimento" text-center>
+    <span item-left>Data de nascimento: </span><span item-left >{{socio.dataNascimento  | date:'dd/MM/yyyy'}}</span>
+  </p>
+  <div class="rodape"></div>
+</ion-content>

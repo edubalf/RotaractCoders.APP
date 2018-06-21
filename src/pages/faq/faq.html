@@ -7,14 +7,15 @@
   </ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
-  <ion-card *ngFor="let item of lista">
-    <ion-card-header>
-      {{item.pergunta}}
-    </ion-card-header>
-    <ion-card-content>
-      {{item.resposta}}
-    </ion-card-content>
-  </ion-card>
+  <ion-list>
+    <ion-item text-wrap no-lines *ngFor="let item of lista">
+      <h2 text-left class="pergunta-estilo">{{item.pergunta}}</h2>
+      
+      <p class="resposta-estilo">
+        {{item.resposta}}
+      </p>
+    </ion-item>
+  </ion-list>
+  <div class="rodape rodape-scroll"></div>
 </ion-content>

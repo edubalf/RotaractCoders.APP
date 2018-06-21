@@ -1,0 +1,11 @@
+<ion-content padding>
+  <ion-list>
+    <ion-item text-wrap no-lines *ngFor="let clube of socio.clubes">
+      <h2 class="cargo-estilo">{{clube.nome}} ({{clube.numeroDistrito}})</h2>
+      <p class="dados-cargo-estilo" text-center>
+        {{clube.posse | date:'dd/MM/yyyy'}} ~ {{clube.desligamento | date:'dd/MM/yyyy'}}
+      </p>
+    </ion-item>
+  </ion-list>
+  <div class="rodape rodape-scroll"></div>
+</ion-content>

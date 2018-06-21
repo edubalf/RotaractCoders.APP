@@ -3,12 +3,13 @@ import { IonicPage, LoadingController, NavController, NavParams } from 'ionic-an
 import { SocioClubeResult } from '../../models/results/socio-clube-result';
 import { SocioProvider } from '../../providers/socio/socio';
 import { DetalheSocioPage } from '../detalhe-socio/detalhe-socio';
+import { DetalheSocioIntermediarioPage } from '../detalhe-socio-intermediario/detalhe-socio-intermediario';
 
 @IonicPage()
 @Component({
     selector: 'page-lista-rdrs',
     templateUrl: 'lista-rdrs.html',
-    providers: [ 
+    providers: [
         SocioProvider
     ]
 })
@@ -26,32 +27,32 @@ export class ListaRdrsPage {
         public navCtrl: NavController,
         public navParams: NavParams) {
 
-            this.loader.present().then(() => {
-                this.socioProvider.listarRdrs().subscribe(data => {
-                    
-                    this.lista = data;
+        this.loader.present().then(() => {
+            this.socioProvider.listarRdrs().subscribe(data => {
 
-                    this.lista.sort(function(a, b) {
-                        if (a.gestaoDe > b.gestaoDe) {
-                            return -1;
-                        }
-                        if (a.gestaoDe < b.gestaoDe) {
-                            return 1;
-                        }
-                        // a must be equal to b
-                        return 0;
-                    });
+                this.lista = data;
 
-                    this.loader.dismiss();
-                }, err => this.loader.dismiss());
-            });
-        }
+                this.lista.sort(function (a, b) {
+                    if (a.gestaoDe > b.gestaoDe) {
+                        return -1;
+                    }
+                    if (a.gestaoDe < b.gestaoDe) {
+                        return 1;
+                    }
+                    // a must be equal to b
+                    return 0;
+                });
 
-        abrirSocio(socio: SocioClubeResult) {
+                this.loader.dismiss();
+            }, err => this.loader.dismiss());
+        });
+    }
 
-            this.navCtrl.push(DetalheSocioPage, 
-            { 
+    abrirSocio(socio: SocioClubeResult) {
+
+        this.navCtrl.push(DetalheSocioIntermediarioPage,
+            {
                 codigoSocio: socio.codigoSocio
             });
-        }
+    }
 }
