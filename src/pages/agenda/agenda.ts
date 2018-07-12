@@ -4,7 +4,6 @@ import { AgendaResult } from '../../models/results/agenda-result';
 import { EventoProvider } from '../../providers/evento/evento';
 import { DetalheAgendaPage } from '../detalhe-agenda/detalhe-agenda';
 
-@IonicPage()
 @Component({
   selector: 'page-agenda',
   templateUrl: 'agenda.html'
@@ -14,7 +13,7 @@ export class AgendaPage {
   lista: AgendaResult[] = [];
 
   loader = this.loadingController.create({
-    content: 'Carrgegando lista de eventos...',
+    content: 'Carregando...',
   });
 
   constructor(
@@ -33,10 +32,6 @@ export class AgendaPage {
           this.loader.dismiss();
         }, err => this.loader.dismiss());
       });
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AgendaPage');
   }
 
   abrirDetalhe(id) {

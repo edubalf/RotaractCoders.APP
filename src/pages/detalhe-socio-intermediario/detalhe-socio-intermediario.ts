@@ -6,7 +6,6 @@ import { ClubeProvider } from '../../providers/clube/clube';
 import { SocioProvider } from '../../providers/socio/socio';
 import { DetalheSocioPage } from '../detalhe-socio/detalhe-socio';
 
-@IonicPage()
 @Component({
   selector: 'page-detalhe-socio-intermediario',
   templateUrl: 'detalhe-socio-intermediario.html',
@@ -25,7 +24,7 @@ export class DetalheSocioIntermediarioPage {
   codigoSocio: string;
 
   loader = this.loadingController.create({
-    content: 'Carregando dados do sócio...',
+    content: 'Carregando...',
   });
 
   constructor(
@@ -65,8 +64,6 @@ export class DetalheSocioIntermediarioPage {
   
           return 0; 
         });
-
-        console.log(this.socio);
 
         this.clubeProvider.obter(this.socio.codigoClube).subscribe(clube => {
           this.clube = clube;

@@ -1,13 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { DadoEstaticoProvider } from '../../providers/dado-estatico/dado-estatico';
+import { NavController, LoadingController } from 'ionic-angular';
+import { DistritoProvider } from '../../providers/distrito/distrito';
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html',
-  providers: [
-    DadoEstaticoProvider
-  ]
+  templateUrl: 'home.html'
 })
 export class HomePage {
 
@@ -15,27 +12,23 @@ export class HomePage {
   qtdsocio: string;
   qtdclube: string;
 
+  loader = this.loadingController.create({
+    content: 'Carregando...',
+  });
+
   constructor(
     public navCtrl: NavController,
-    private dadoEstaticoProvider: DadoEstaticoProvider) {
+    private loadingController: LoadingController,
+    private distritoProvider: DistritoProvider) {
 
-      this.dadoEstaticoProvider.buscar("oqueerotaract").then(retorno => {
+    this.loader.present().then(() => {
+      this.distritoProvider.informacoes().subscribe(retorno => {
         
-        if (retorno != null) {
-          this.oqueerotaract = retorno.descricao;  
-        }
-      });
+        this.qtdclube = retorno.quantidadeClubes;
+        this.qtdsocio = retorno.quantidadeSocios;
 
-      this.dadoEstaticoProvider.buscar("numeroSocios").then(retorno => {
-        if (retorno != null) {
-          this.qtdsocio = retorno.descricao;
-        }
-      });
-
-      this.dadoEstaticoProvider.buscar("numeroClubes").then(retorno => {
-        if (retorno != null) {
-          this.qtdclube = retorno.descricao;
-        }
-      });
+        this.loader.dismiss()
+      }, err => this.loader.dismiss());
+    });
   }
 }

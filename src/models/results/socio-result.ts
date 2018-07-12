@@ -1,4 +1,3 @@
-import { CargoSocioResult } from '../results/cargo-socio-result';
 
 export class SocioResult {
 

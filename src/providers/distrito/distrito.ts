@@ -4,20 +4,15 @@ import 'rxjs/add/operator/map';
 import { Config } from '../../config';
 
 @Injectable()
-export class EventoProvider {
+export class DistritoProvider {
 
   config: Config = new Config();
   
   constructor(
     public http: Http) { }
 
-  listar() {
-    return this.http.get(this.config.apiUrl + 'api/Evento')
-      .map(res => res.json());
-  }
-
-  obter(id) {
-    return this.http.get(this.config.apiUrl + 'api/Evento/' + id)
+  informacoes() {
+    return this.http.get(this.config.apiUrl + 'api/Distrito/Informacoes/' + this.config.distrito)
       .map(res => res.json());
   }
 }

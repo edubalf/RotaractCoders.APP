@@ -7,7 +7,6 @@ import { ListaArquivosPage } from '../lista-arquivos/lista-arquivos';
 
 import { ArquivoProvider } from '../../providers/arquivo/arquivo';
 
-@IonicPage()
 @Component({
     selector: 'page-downloads',
     templateUrl: 'downloads.html',
@@ -25,11 +24,11 @@ export class DownloadsPage {
         public navCtrl: NavController,
         public navParams: NavParams) {
 
-        this.arquivoProvider.listar().then(data => {
+        this.arquivoProvider.listar().subscribe(data => {
             this.lista = data;
-            this.listaCategorias = this.lista.map(x => x.categoria).filter((v, i, a) => a.indexOf(v) === i);
 
-            console.log(this.lista);
+            if (this.lista != null)
+                this.listaCategorias = this.lista.map(x => x.categoria).filter((v, i, a) => a.indexOf(v) === i);
         });
     }
 

@@ -3,8 +3,8 @@ import { IonicPage, NavController, LoadingController, NavParams } from 'ionic-an
 import { SocioClubeResult } from '../../models/results/socio-clube-result';
 import { SocioProvider } from '../../providers/socio/socio';
 import { DetalheSocioIntermediarioPage } from '../detalhe-socio-intermediario/detalhe-socio-intermediario';
+import { Config } from '../../config';
 
-@IonicPage()
 @Component({
     selector: 'page-equipe-distrital',
     templateUrl: 'equipe-distrital.html',
@@ -14,10 +14,11 @@ import { DetalheSocioIntermediarioPage } from '../detalhe-socio-intermediario/de
 })
 export class EquipeDistritalPage {
 
+    config = new Config();
     lista: SocioClubeResult[] = [];
 
     loader = this.loadingController.create({
-        content: 'Carrgegando lista da equipe distrital...',
+        content: 'Carregando...',
     });
 
     constructor(
@@ -27,7 +28,7 @@ export class EquipeDistritalPage {
         public navParams: NavParams) {
         
             this.loader.present().then(() => {
-                this.socioProvider.listarEquipeDistrital(new Date(2017,6,1), new Date(2018,6,1)).subscribe(data => {
+                this.socioProvider.listarEquipeDistrital(this.config.gestaoDe, this.config.gestaoAte).subscribe(data => {
                     
                     this.lista = data;
                     this.loader.dismiss();

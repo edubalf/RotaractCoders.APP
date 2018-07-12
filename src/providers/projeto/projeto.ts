@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { Storage } from '@ionic/storage';
 import { Config } from '../../config';
 
 @Injectable()
@@ -10,7 +9,6 @@ export class ProjetoProvider {
   config: Config = new Config();
 
   constructor(
-    private storage: Storage,
     public http: Http) { }
 
   listar(CodigoClube: string) {

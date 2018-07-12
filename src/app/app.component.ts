@@ -1,12 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, LoadingController, AlertController, Platform, Content } from 'ionic-angular';
+import { Nav, LoadingController, AlertController, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { OneSignal } from '@ionic-native/onesignal';
 
 import { HomePage } from '../pages/home/home';
 import { ListaRdrsPage } from '../pages/lista-rdrs/lista-rdrs';
-import { LemaRotarioPage } from '../pages/lema-rotario/lema-rotario';
 import { ListaPresidentesPage } from '../pages/lista-presidentes/lista-presidentes';
 import { ClubesPage } from '../pages/clubes/clubes';
 import { EquipeDistritalPage } from '../pages/equipe-distrital/equipe-distrital';
@@ -14,8 +12,6 @@ import { AgendaPage } from '../pages/agenda/agenda';
 import { DownloadsPage } from '../pages/downloads/downloads';
 import { FaqPage } from '../pages/faq/faq';
 import { ListaCargosPage } from '../pages/lista-cargos/lista-cargos';
-
-import { ConsolidadoProvider } from '../providers/consolidado/consolidado';
 
 import 'rxjs/RX';
 
@@ -43,30 +39,14 @@ export class MyApp {
         public platform: Platform, 
         public statusBar: StatusBar, 
         public splashScreen: SplashScreen,
-        private consolidadoProvider: ConsolidadoProvider,
         private loadingController: LoadingController,
-        private alertController: AlertController,
-        private oneSignal: OneSignal) {
+        private alertController: AlertController) {
         
         this.initializeApp();
-
-        this.loader.present().then(() => {
-            this.consolidadoProvider.atualizar().then(retorno => {
-                retorno.subscribe(() => {
-
-                    this.openPage({ title: 'Distríto 443', component: HomePage });
-                    this.loader.dismiss();
-                }, err => {
-                    
-                    this.loader.dismiss();
-                });
-            });    
-        });
 
         this.pages = [
             { title: 'Distríto 4430', component: HomePage },
             { title: 'Galeria RDRs', component: ListaRdrsPage },
-            //{ title: 'Lema rotário', component: LemaRotarioPage },
             { title: 'Presidentes', component: ListaPresidentesPage },
             { title: 'Clubes', component: ClubesPage },
             { title: 'Equipe distrital', component: EquipeDistritalPage },
@@ -84,6 +64,7 @@ export class MyApp {
 
     initializeApp() {
 
+        /*
         this.platform.ready().then(() => {
             let funcaoRetorno = (data) => {
                 console.log('Notificações: ' + JSON.stringify(data));
@@ -96,7 +77,7 @@ export class MyApp {
 
             this.statusBar.styleDefault();
             this.splashScreen.hide();
-        });
+        });*/
     }
 
     openPage(page) {

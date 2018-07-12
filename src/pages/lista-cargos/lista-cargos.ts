@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CargoResult } from '../../models/results/cargo-result';
 import { DetalheCargoPage } from '../detalhe-cargo/detalhe-cargo';
 
-@IonicPage()
 @Component({
     selector: 'page-lista-cargos',
     templateUrl: 'lista-cargos.html',

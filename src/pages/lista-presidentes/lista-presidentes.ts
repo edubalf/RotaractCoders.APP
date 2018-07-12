@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, LoadingController, NavController, NavParams } from 'ionic-angular';
-import { DetalheSocioPage } from '../detalhe-socio/detalhe-socio';
+import { LoadingController, NavController, NavParams } from 'ionic-angular';
 import { SocioClubeResult } from '../../models/results/socio-clube-result';
 import { SocioProvider } from '../../providers/socio/socio';
 import { DetalheSocioIntermediarioPage } from '../detalhe-socio-intermediario/detalhe-socio-intermediario';
+import { Config } from '../../config';
 
-@IonicPage()
 @Component({
     selector: 'page-lista-presidentes',
     templateUrl: 'lista-presidentes.html',
@@ -15,10 +14,11 @@ import { DetalheSocioIntermediarioPage } from '../detalhe-socio-intermediario/de
 })
 export class ListaPresidentesPage {
 
+    config = new Config();
     lista: SocioClubeResult[] = [];
 
     loader = this.loadingController.create({
-        content: 'Carregando lista de presidentes...',
+        content: 'Carregando...',
     });
 
     constructor(
@@ -28,7 +28,7 @@ export class ListaPresidentesPage {
         public navParams: NavParams) {
 
         this.loader.present().then(() => {
-            this.socioProvider.listarPresidentes(new Date(2017, 6, 1), new Date(2018, 6, 1)).subscribe(data => {
+            this.socioProvider.listarPresidentes(this.config.gestaoDe, this.config.gestaoAte).subscribe(data => {
 
                 this.lista = data;
 

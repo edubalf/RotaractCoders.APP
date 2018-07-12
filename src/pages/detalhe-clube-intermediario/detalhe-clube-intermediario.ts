@@ -8,7 +8,6 @@ import { ClubeProvider } from '../../providers/clube/clube';
 import { ProjetoProvider } from '../../providers/projeto/projeto';
 import { DetalheClubePage } from '../detalhe-clube/detalhe-clube';
 
-@IonicPage()
 @Component({
   selector: 'page-detalhe-clube-intermediario',
   templateUrl: 'detalhe-clube-intermediario.html',
@@ -28,7 +27,7 @@ export class DetalheClubeIntermediarioPage {
   };
 
   loader = this.loadingController.create({
-    content: 'Carrgegando lista de clubes...',
+    content: 'Carregando...',
   });
 
   contadorLoad: number = 2;

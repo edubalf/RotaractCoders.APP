@@ -1,14 +1,11 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
 import { IonicPage, LoadingController, NavController, NavParams, Platform } from 'ionic-angular';
 import { AgendaResult } from '../../models/results/agenda-result';
 import { EventoProvider } from '../../providers/evento/evento';
 import { Geolocation } from '@ionic-native/geolocation';
-import { Location } from '@angular/common';
 
 declare var google;
 
-@IonicPage()
 @Component({
   selector: 'page-detalhe-agenda',
   templateUrl: 'detalhe-agenda.html',
@@ -20,7 +17,7 @@ export class DetalheAgendaPage {
   evento: AgendaResult = new AgendaResult();
 
   loader = this.loadingController.create({
-    content: 'Carrgegando lista de eventos...',
+    content: 'Carregando...',
   });
 
   constructor(
@@ -28,7 +25,6 @@ export class DetalheAgendaPage {
     public navParams: NavParams, 
     private eventoProvider: EventoProvider,
     private loadingController: LoadingController,
-    private launchNavigator: LaunchNavigator,
     private geolocation: Geolocation,
     private platform: Platform) {
 
@@ -59,7 +55,7 @@ export class DetalheAgendaPage {
  
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
  
-    let marker = new google.maps.Marker({
+    new google.maps.Marker({
       map: this.map,
       animation: google.maps.Animation.DROP,
       position: this.map.getCenter()

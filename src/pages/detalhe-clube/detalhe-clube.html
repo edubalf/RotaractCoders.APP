@@ -6,92 +6,9 @@
 
 <ion-content padding>
   <ion-tabs>
-    <ion-tab tabIcon="water" tabTitle="Dados" [root]="tabDados" [rootParams]="dados.clube"></ion-tab>
-    <ion-tab tabIcon="leaf" tabTitle="Sócios ativos" [root]="tabSociosAtivos" [rootParams]="dados.sociosAtivos"></ion-tab>
-    <ion-tab tabIcon="water" tabTitle="Sócios inativos" [root]="tabSociosInativos" [rootParams]="dados.sociosInativos"></ion-tab>
-    <ion-tab tabIcon="leaf" tabTitle="Projetos" [root]="tabProjetos" [rootParams]="dados.projetos"></ion-tab>
+    <ion-tab tabIcon="book" tabTitle="Dados" [root]="tabDados" [rootParams]="dados.clube"></ion-tab>
+    <ion-tab tabIcon="people" tabTitle="Sócios ativos" [root]="tabSociosAtivos" [rootParams]="dados.sociosAtivos"></ion-tab>
+    <ion-tab tabIcon="people" tabTitle="Sócios inativos" [root]="tabSociosInativos" [rootParams]="dados.sociosInativos"></ion-tab>
+    <ion-tab tabIcon="hammer" tabTitle="Projetos" [root]="tabProjetos" [rootParams]="dados.projetos"></ion-tab>
   </ion-tabs>
-
-  <!--
-  <ion-card>
-    <ion-card-content>
-      <ion-card-title>
-        {{clube.nome}}
-      </ion-card-title>
-      <p>
-        Data de fundação: {{clube.dataFundacao | date:'dd/MM/yyyy'}}<br />
-        Presidente: {{clube.presidente}}<br />
-        Local das reuniões: {{clube.localReuniao}}<br />
-        Horario das reuniões: {{clube.horarioReuniao}}<br />
-      </p>
-      <br />
-      <ion-row>
-        <ion-col>
-          <a href={{clube.facebook}} ion-button clear large>
-            <img src="assets/icon/facebook.ico" />
-          </a>
-        </ion-col>
-        <ion-col>
-          <a href={{clube.instagram}} ion-button clear large>
-            <img src="assets/icon/instagram.ico" />
-          </a>
-        </ion-col>
-        <ion-col>
-          <a href="mailto:{{clube.email}}" ion-button clear large>
-            <img src="assets/icon/email.ico" />
-          </a>
-        </ion-col>
-      </ion-row>
-    </ion-card-content>
-  </ion-card>
-  
-  <ion-card>
-    <ion-card-header>
-      <h2>Socios ativos</h2>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-list>
-        <ion-item *ngFor="let item of sociosAtivos" (click)="abrirSocio(item)">
-          <ion-avatar item-start>
-            <img src={{item.foto}} imageViewer>
-          </ion-avatar>
-          <h2>{{item.nome}}</h2>
-          <p>{{item.cargo}}</p>
-        </ion-item>
-      </ion-list>
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    <ion-card-header>
-      <h2>Socios inativos</h2>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-list>
-        <ion-item *ngFor="let item of sociosInativos" (click)="abrirSocio(item)">
-          <ion-avatar item-start>
-            <img src={{item.foto}} imageViewer>
-          </ion-avatar>
-          <h2>{{item.nome}}</h2>
-          <p>{{item.cargo}}</p>
-        </ion-item>
-      </ion-list>
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    <ion-card-header>
-      <h2>Projetos</h2>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-list>
-        <ion-item *ngFor="let item of projetos" (click)="abrirProjeto(item.codigo)">
-          <h2 text-left text-wrap>{{item.nome}}</h2>
-          <p text-wrap>{{item.descricao}}</p>
-          <hr>
-        </ion-item>
-      </ion-list>
-    </ion-card-content>
-  </ion-card>
-  -->
 </ion-content>

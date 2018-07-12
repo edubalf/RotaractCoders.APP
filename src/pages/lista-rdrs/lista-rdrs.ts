@@ -1,31 +1,25 @@
 import { Component } from '@angular/core';
-import { IonicPage, LoadingController, NavController, NavParams } from 'ionic-angular';
+import { LoadingController, NavController, NavParams } from 'ionic-angular';
 import { SocioClubeResult } from '../../models/results/socio-clube-result';
 import { SocioProvider } from '../../providers/socio/socio';
-import { DetalheSocioPage } from '../detalhe-socio/detalhe-socio';
 import { DetalheSocioIntermediarioPage } from '../detalhe-socio-intermediario/detalhe-socio-intermediario';
 
-@IonicPage()
 @Component({
     selector: 'page-lista-rdrs',
-    templateUrl: 'lista-rdrs.html',
-    providers: [
-        SocioProvider
-    ]
+    templateUrl: 'lista-rdrs.html'
 })
 export class ListaRdrsPage {
 
     lista: SocioClubeResult[] = [];
 
     loader = this.loadingController.create({
-        content: 'Carrgegando lista de RDRs...',
+        content: 'Carregando...',
     });
 
     constructor(
         private socioProvider: SocioProvider,
         private loadingController: LoadingController,
-        public navCtrl: NavController,
-        public navParams: NavParams) {
+        public navCtrl: NavController) {
 
         this.loader.present().then(() => {
             this.socioProvider.listarRdrs().subscribe(data => {

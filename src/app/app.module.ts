@@ -3,7 +3,6 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpModule } from '@angular/http';
 import { IonicStorageModule } from '@ionic/storage';
-import { IonicImageViewerModule } from 'ionic-img-viewer';
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { Geolocation } from '@ionic-native/geolocation';
 import { OneSignal } from '@ionic-native/onesignal';
@@ -11,7 +10,6 @@ import { OneSignal } from '@ionic-native/onesignal';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListaRdrsPage } from '../pages/lista-rdrs/lista-rdrs';
-import { LemaRotarioPage } from '../pages/lema-rotario/lema-rotario';
 import { ListaPresidentesPage } from '../pages/lista-presidentes/lista-presidentes';
 import { ClubesPage } from '../pages/clubes/clubes';
 import { EquipeDistritalPage } from '../pages/equipe-distrital/equipe-distrital';
@@ -25,31 +23,29 @@ import { DetalheCargoPage } from '../pages/detalhe-cargo/detalhe-cargo';
 import { DetalheSocioPage } from '../pages/detalhe-socio/detalhe-socio';
 import { DetalheProjetoPage } from '../pages/detalhe-projeto/detalhe-projeto';
 import { ListaArquivosPage } from '../pages/lista-arquivos/lista-arquivos';
-import { TabDadosClubePage } from '../pages/tab-dados-clube/tab-dados-clube';
-import { TabDadosSocioPage } from '../pages/tab-dados-socio/tab-dados-socio';
-import { TabListaCargoSocioPage } from '../pages/tab-lista-cargo-socio/tab-lista-cargo-socio';
-import { TabListaClubeSocioPage } from '../pages/tab-lista-clube-socio/tab-lista-clube-socio';
-import { TabListaProjetoClubePage } from '../pages/tab-lista-projeto-clube/tab-lista-projeto-clube';
-import { TabListaSocioClubePage } from '../pages/tab-lista-socio-clube/tab-lista-socio-clube';
-import { DetalheSocioIntermediarioPage } from '../pages/detalhe-socio-intermediario/detalhe-socio-intermediario';
-import { DetalheClubeIntermediarioPage } from '../pages/detalhe-clube-intermediario/detalhe-clube-intermediario';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { EventoProvider } from '../providers/evento/evento';
 import { ArquivoProvider } from '../providers/arquivo/arquivo';
 import { ClubeProvider } from '../providers/clube/clube';
-import { DadoEstaticoProvider } from '../providers/dado-estatico/dado-estatico';
 import { FaqProvider } from '../providers/faq/faq';
 import { SocioProvider } from '../providers/socio/socio';
-import { ConsolidadoProvider } from '../providers/consolidado/consolidado';
 import { ProjetoProvider } from '../providers/projeto/projeto';
+import { DistritoProvider } from '../providers/distrito/distrito';
+import { DetalheClubeIntermediarioPage } from '../pages/detalhe-clube-intermediario/detalhe-clube-intermediario';
+import { DetalheSocioIntermediarioPage } from '../pages/detalhe-socio-intermediario/detalhe-socio-intermediario';
+import { TabDadosClubePage } from '../pages/tab-dados-clube/tab-dados-clube';
+import { TabDadosSocioPage } from '../pages/tab-dados-socio/tab-dados-socio';
+import { TabListaCargoSocioPage } from '../pages/tab-lista-cargo-socio/tab-lista-cargo-socio';
+import { TabListaClubeSocioPage } from '../pages/tab-lista-clube-socio/tab-lista-clube-socio';
+import { TabListaProjetoClubePage } from '../pages/tab-lista-projeto-clube/tab-lista-projeto-clube';
+import { TabListaSocioClubePage } from '../pages/tab-lista-socio-clube/tab-lista-socio-clube';
 
 @NgModule({
     declarations: [
         MyApp,
         HomePage,
-        LemaRotarioPage,
         ListaPresidentesPage,
         ClubesPage,
         EquipeDistritalPage,
@@ -64,27 +60,25 @@ import { ProjetoProvider } from '../providers/projeto/projeto';
         ListaArquivosPage,
         DetalheSocioPage,
         DetalheProjetoPage,
+        DetalheClubeIntermediarioPage,
+        DetalheSocioIntermediarioPage,
         TabDadosClubePage,
         TabDadosSocioPage,
         TabListaCargoSocioPage,
         TabListaClubeSocioPage,
         TabListaProjetoClubePage,
-        TabListaSocioClubePage,
-        DetalheSocioIntermediarioPage,
-        DetalheClubeIntermediarioPage
+        TabListaSocioClubePage
     ],
     imports: [
         BrowserModule,
         IonicModule.forRoot(MyApp),
         IonicStorageModule.forRoot(),
-        HttpModule,
-        IonicImageViewerModule
+        HttpModule
     ],
     bootstrap: [IonicApp],
     entryComponents: [
         MyApp,
         HomePage,
-        LemaRotarioPage,
         ListaPresidentesPage,
         ClubesPage,
         EquipeDistritalPage,
@@ -99,14 +93,14 @@ import { ProjetoProvider } from '../providers/projeto/projeto';
         ListaArquivosPage,
         DetalheSocioPage,
         DetalheProjetoPage,
+        DetalheClubeIntermediarioPage,
+        DetalheSocioIntermediarioPage,
         TabDadosClubePage,
         TabDadosSocioPage,
         TabListaCargoSocioPage,
         TabListaClubeSocioPage,
         TabListaProjetoClubePage,
-        TabListaSocioClubePage,
-        DetalheSocioIntermediarioPage,
-        DetalheClubeIntermediarioPage
+        TabListaSocioClubePage
     ],
     providers: [
         StatusBar,
@@ -118,11 +112,10 @@ import { ProjetoProvider } from '../providers/projeto/projeto';
         EventoProvider,
         ArquivoProvider,
         ClubeProvider,
-        DadoEstaticoProvider,
         FaqProvider,
         SocioProvider,
-        ConsolidadoProvider,
-        ProjetoProvider
+        ProjetoProvider,
+        DistritoProvider
     ]
 })
 export class AppModule { }

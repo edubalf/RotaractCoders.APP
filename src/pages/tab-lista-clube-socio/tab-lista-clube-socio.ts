@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ClubeResult } from '../../models/results/clube-result';
 import { SocioResult } from '../../models/results/socio-result';
 
-@IonicPage()
 @Component({
   selector: 'page-tab-lista-clube-socio',
   templateUrl: 'tab-lista-clube-socio.html',

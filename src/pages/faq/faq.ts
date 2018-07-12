@@ -3,7 +3,6 @@ import { IonicPage, NavController, LoadingController, NavParams } from 'ionic-an
 import { FaqResult } from '../../models/results/faq-result';
 import { FaqProvider } from '../../providers/faq/faq';
 
-@IonicPage()
 @Component({
     selector: 'page-faq',
     templateUrl: 'faq.html',
@@ -16,7 +15,7 @@ export class FaqPage {
     lista: FaqResult[] = [];
 
     loader = this.loadingController.create({
-        content: 'Carregando perguntas frequentes...',
+        content: 'Carregando...',
     });
 
     constructor(

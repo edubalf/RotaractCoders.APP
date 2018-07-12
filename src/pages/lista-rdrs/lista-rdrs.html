@@ -11,7 +11,7 @@
   <ion-list>
     <ion-item text-wrap no-lines *ngFor="let item of lista" (click)="abrirSocio(item)">
       <ion-avatar item-start>
-        <img class="someclass" src={{item.foto}} imageViewer>
+        <img class="someclass" src={{item.foto}}>
       </ion-avatar>
       <h2 text-left>{{item.nomeSocio}}</h2>
       <p text-left>{{item.clube}}</p>

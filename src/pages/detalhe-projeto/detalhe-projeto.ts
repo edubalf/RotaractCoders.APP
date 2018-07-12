@@ -5,7 +5,6 @@ import { ProjetoResult } from '../../models/results/projeto-result';
 
 import { ProjetoProvider } from '../../providers/projeto/projeto';
 
-@IonicPage()
 @Component({
   selector: 'page-detalhe-projeto',
   templateUrl: 'detalhe-projeto.html',
@@ -18,7 +17,7 @@ export class DetalheProjetoPage {
   projeto: ProjetoResult = new ProjetoResult();
 
   loader = this.loadingController.create({
-    content: 'Carrgegando lista da equipe distrital...',
+    content: 'Carregando...',
   });
 
   constructor(
