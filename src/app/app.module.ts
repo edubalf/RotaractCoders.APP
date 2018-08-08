@@ -29,7 +29,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { EventoProvider } from '../providers/evento/evento';
 import { ArquivoProvider } from '../providers/arquivo/arquivo';
 import { ClubeProvider } from '../providers/clube/clube';
-import { FaqProvider } from '../providers/faq/faq';
 import { SocioProvider } from '../providers/socio/socio';
 import { ProjetoProvider } from '../providers/projeto/projeto';
 import { DistritoProvider } from '../providers/distrito/distrito';
@@ -112,7 +111,6 @@ import { TabListaSocioClubePage } from '../pages/tab-lista-socio-clube/tab-lista
         EventoProvider,
         ArquivoProvider,
         ClubeProvider,
-        FaqProvider,
         SocioProvider,
         ProjetoProvider,
         DistritoProvider

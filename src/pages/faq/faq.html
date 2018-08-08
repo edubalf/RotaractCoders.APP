@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>F.A.Q.</ion-title>
+    <ion-title>ABC do Rotaractiano</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -11,11 +11,12 @@
   <ion-list>
     <ion-item text-wrap no-lines *ngFor="let item of lista">
       <h2 text-left class="pergunta-estilo">{{item.pergunta}}</h2>
-      
       <p class="resposta-estilo">
         {{item.resposta}}
       </p>
     </ion-item>
   </ion-list>
+  <br><br>
+  <p style="margin-left: 5px;">*Créditos para o Rotaract de São Paulo Cambucí pelo material</p>
   <div class="rodape rodape-scroll"></div>
 </ion-content>

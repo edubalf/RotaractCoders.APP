@@ -25,16 +25,6 @@ export class MyApp {
 
     pages: Array<{ title: string, component: any }>;
 
-    presentAlert() {
-        let alert = this.alertController.create({
-          subTitle: 'Não foi possivel atualizar as informações'
-        });
-
-        alert.present();
-
-        setTimeout(function(){ alert.dismiss() }, 2000);        
-      }
-
     constructor(
         public platform: Platform, 
         public statusBar: StatusBar, 
@@ -53,14 +43,9 @@ export class MyApp {
             { title: 'Agenda', component: AgendaPage },
             { title: 'Guia de cargos', component: ListaCargosPage },
             { title: 'Download', component: DownloadsPage },
-            { title: 'F.A.Q.', component: FaqPage }
+            { title: 'ABC do Rotaractiano', component: FaqPage }
         ];
-
     }
-
-    loader = this.loadingController.create({
-        content: 'Atualizando os dados...',
-      });
 
     initializeApp() {
 
