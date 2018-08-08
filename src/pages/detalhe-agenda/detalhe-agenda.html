@@ -17,8 +17,9 @@
     <p *ngIf="evento.programa">Programa: {{evento.programa}}</p>
     <p *ngIf="evento.descricao">Descrição: {{evento.descricao}}</p>
     <p *ngIf="evento.endereco">Endereço: {{evento.endereco}}</p>
+    <p *ngIf="!evento.endereco">Endereço: A definir</p>
     <p *ngIf="evento.complemento">Complemento: {{evento.complemento}}</p>
-    <div #map id="map"></div>
+    <div [hidden]="!evento.endereco" #map id="map"></div>
   </div>
   <div class="rodape"></div>
 </ion-content>

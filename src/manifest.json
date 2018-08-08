@@ -3,6 +3,7 @@
   "short_name": "Rotaract 4430",
   "start_url": "index.html",
   "display": "standalone",
+  "Scope": "/",
   "icons": [
     {
       "src": "assets/icon/icon-72x72.png",
@@ -43,7 +44,8 @@
       "src": "assets/icon/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
-    }],
+    }
+  ],
   "background_color": "#c0004b",
   "theme_color": "#c0004b"
 }
