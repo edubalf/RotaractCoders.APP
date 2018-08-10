@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController } from 'ionic-angular';
+import { NavController, LoadingController, Platform } from 'ionic-angular';
 import { DistritoProvider } from '../../providers/distrito/distrito';
 
 @Component({

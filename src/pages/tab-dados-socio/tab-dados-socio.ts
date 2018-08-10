@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { SocioResult } from '../../models/results/socio-result';
 import { ClubeResult } from '../../models/results/clube-result';
 import { DetalheClubeIntermediarioPage } from '../detalhe-clube-intermediario/detalhe-clube-intermediario';
@@ -14,6 +14,8 @@ export class TabDadosSocioPage {
   socio: SocioResult = new SocioResult();
   clube: ClubeResult = new ClubeResult();
 
+  contadorAudio: number = 0;
+
   constructor(
     private app: App,
     public navCtrl: NavController,
@@ -26,5 +28,21 @@ export class TabDadosSocioPage {
   abrirClube(codigoClube: string) {
 
     this.app.getRootNav().push(DetalheClubeIntermediarioPage, { codigoClube: codigoClube });    
+  }
+
+  clickFotoSocio() {
+
+    console.log('click');
+    console.log(this.socio.codigoSocio)
+
+    if (this.socio.codigoSocio == "17831") {
+      this.contadorAudio++;
+    }
+
+    if (this.contadorAudio == 15) {
+
+      var snd = new Audio("assets/mp3/obama.mp3");
+      snd.play();
+    }
   }
 }
