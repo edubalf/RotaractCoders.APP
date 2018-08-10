@@ -6,6 +6,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { Geolocation } from '@ionic-native/geolocation';
 import { OneSignal } from '@ionic-native/onesignal';
+import { IonicImageViewerModule } from 'ionic-img-viewer';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -70,6 +71,7 @@ import { TabListaSocioClubePage } from '../pages/tab-lista-socio-clube/tab-lista
     ],
     imports: [
         BrowserModule,
+        IonicImageViewerModule,
         IonicModule.forRoot(MyApp),
         IonicStorageModule.forRoot(),
         HttpModule
