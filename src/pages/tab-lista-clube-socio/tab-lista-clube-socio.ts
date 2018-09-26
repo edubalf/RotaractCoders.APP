@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ClubeResult } from '../../models/results/clube-result';
+//import { ClubeResult } from '../../models/results/clube-result';
 import { SocioResult } from '../../models/results/socio-result';
 
 @Component({
@@ -10,11 +10,13 @@ import { SocioResult } from '../../models/results/socio-result';
 export class TabListaClubeSocioPage {
 
   socio: SocioResult = new SocioResult();
-  clube: ClubeResult = new ClubeResult();
+  //clube: ClubeResult = new ClubeResult();
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
     this.socio = this.navParams.data.socio;
-    this.clube = this.navParams.data.clube;
+
+    console.log(this.socio);
+    //this.clube = this.navParams.data.clube;
   }
 }

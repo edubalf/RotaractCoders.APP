@@ -32,9 +32,6 @@ export class TabDadosSocioPage {
 
   clickFotoSocio() {
 
-    console.log('click');
-    console.log(this.socio.codigoSocio)
-
     if (this.socio.codigoSocio == "17831") {
       this.contadorAudio++;
     }
@@ -43,6 +40,13 @@ export class TabDadosSocioPage {
 
       var snd = new Audio("assets/mp3/obama.mp3");
       snd.play();
+
+      setTimeout(function(){ 
+        snd.pause();
+        snd.currentTime = 0;
+      }, 2000);
+
+      this.contadorAudio = 0;
     }
   }
 }
