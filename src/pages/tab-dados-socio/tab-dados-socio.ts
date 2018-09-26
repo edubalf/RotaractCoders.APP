@@ -32,6 +32,7 @@ export class TabDadosSocioPage {
 
   clickFotoSocio() {
 
+    
     if (this.socio.codigoSocio == "17831") {
       this.contadorAudio++;
     }
