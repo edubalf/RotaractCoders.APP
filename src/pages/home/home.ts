@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, LoadingController, Platform } from 'ionic-angular';
 import { DistritoProvider } from '../../providers/distrito/distrito';
+import { ListaSociosPage } from '../lista-socios/lista-socios';
+import { ClubesPage } from '../clubes/clubes';
 
 @Component({
   selector: 'page-home',
@@ -30,5 +32,13 @@ export class HomePage {
         this.loader.dismiss()
       }, err => this.loader.dismiss());
     });
+  }
+
+  abrirPaginaSocios() {
+    this.navCtrl.push(ListaSociosPage);
+  }
+
+  abrirPaginaClubes() {
+    this.navCtrl.push(ClubesPage);
   }
 }

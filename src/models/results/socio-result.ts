@@ -13,6 +13,10 @@ export class SocioResult {
     foto: string;
     dataAtualizacao: Date;
     bitAtivo: boolean;
+    nomeClubeAtual: string;
+
+    //Uso interno
+    cargoAtual:string;
 
     cargos: {
         nome: string;

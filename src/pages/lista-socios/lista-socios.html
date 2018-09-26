@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar color="rotaract">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>SÓCIOS</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item text-wrap no-lines *ngFor="let item of lista" (click)="abrirSocio(item)">
+      <ion-avatar item-start>
+        <img class="someclass" src={{item.foto}} imageViewer>
+      </ion-avatar>
+      <h2 text-left>{{item.nome}}</h2>
+      <p text-left>{{item.nomeClubeAtual}}</p>
+    </ion-item>
+  </ion-list>
+  <div class="rodape rodape-scroll"></div>
+</ion-content>

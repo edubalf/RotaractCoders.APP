@@ -24,6 +24,7 @@ import { DetalheCargoPage } from '../pages/detalhe-cargo/detalhe-cargo';
 import { DetalheSocioPage } from '../pages/detalhe-socio/detalhe-socio';
 import { DetalheProjetoPage } from '../pages/detalhe-projeto/detalhe-projeto';
 import { ListaArquivosPage } from '../pages/lista-arquivos/lista-arquivos';
+import { ListaSociosPage } from '../pages/lista-socios/lista-socios';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -67,7 +68,8 @@ import { TabListaSocioClubePage } from '../pages/tab-lista-socio-clube/tab-lista
         TabListaCargoSocioPage,
         TabListaClubeSocioPage,
         TabListaProjetoClubePage,
-        TabListaSocioClubePage
+        TabListaSocioClubePage,
+        ListaSociosPage
     ],
     imports: [
         BrowserModule,
@@ -101,7 +103,8 @@ import { TabListaSocioClubePage } from '../pages/tab-lista-socio-clube/tab-lista
         TabListaCargoSocioPage,
         TabListaClubeSocioPage,
         TabListaProjetoClubePage,
-        TabListaSocioClubePage
+        TabListaSocioClubePage,
+        ListaSociosPage
     ],
     providers: [
         StatusBar,

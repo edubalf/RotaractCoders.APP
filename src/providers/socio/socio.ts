@@ -15,6 +15,11 @@ export class SocioProvider {
       .map(res => res.json());
   }
 
+  listarTodos() {
+    return this.http.get(this.config.apiUrl + 'api/Socio/ListarTodos/' + this.config.distrito)
+      .map(res => res.json());
+  }
+
   listarRdrs() {
     return this.http.get(this.config.apiUrl + 'api/Socio/ListarRdrs/' + this.config.distrito)
       .map(res => res.json());
