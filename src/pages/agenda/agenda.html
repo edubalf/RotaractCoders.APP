@@ -9,7 +9,7 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item *ngFor="let item of lista" (click)="abrirDetalhe(item.rowKey)">
+    <ion-item text-wrap no-lines *ngFor="let item of lista" (click)="abrirDetalhe(item.rowKey)">
         <h2>{{item.nome}}</h2>
         <p text-center>{{item.realizador}} - {{item.dataEvento | date : 'dd/MM/yyyy'}}</p>
     </ion-item>

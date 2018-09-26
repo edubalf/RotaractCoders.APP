@@ -21,9 +21,6 @@ export class TabListaSocioClubePage {
 
     this.socios = this.navParams.data;
 
-    console.log(this.socios);
-    console.log(this.config);
-
     for (var i = 0; i < this.socios.length; i++) {
 
       if (this.socios[i].cargos == null) continue;
